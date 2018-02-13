@@ -7,6 +7,8 @@
 
 package org.usfirst.frc.team2682.robot;
 
+import org.usfirst.frc.team2682.robot.subsystems.CANDriveTrainSystem;
+
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -25,6 +27,8 @@ public class Robot extends TimedRobot {
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
+	
+	public static final CANDriveTrainSystem drive = new CANDriveTrainSystem();
 
 	/**
 	 * This function is run when the robot is first started up and should be
