@@ -1,5 +1,7 @@
 package org.usfirst.frc.team2682.robot.subsystems;
 
+import org.usfirst.frc.team2682.robot.RobotMap;
+
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
 
@@ -15,10 +17,10 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 public class CANDriveTrainSystem extends Subsystem {
 
 	//All of the drive motors (thank god there are only 4)
-	public WPI_TalonSRX driveMotorLeftFront = new WPI_TalonSRX(1);
-	public WPI_TalonSRX driveMotorRightFront = new WPI_TalonSRX(2);
-	public WPI_TalonSRX driveMotorLeftBack = new WPI_TalonSRX(3);
-	public WPI_TalonSRX driveMotorRightBack = new WPI_TalonSRX(4);
+	public WPI_TalonSRX driveMotorLeftFront = new WPI_TalonSRX(RobotMap.driveMotorLeftFrontPort);
+	public WPI_TalonSRX driveMotorRightFront = new WPI_TalonSRX(RobotMap.driveMotorRightFrontPort);
+	public WPI_TalonSRX driveMotorLeftBack = new WPI_TalonSRX(RobotMap.driveMotorLeftBackPort);
+	public WPI_TalonSRX driveMotorRightBack = new WPI_TalonSRX(RobotMap.driveMotorRightBackPort);
 	
 	//Most likely i2c port
 	public AHRS navX = new AHRS(I2C.Port.kOnboard);
@@ -45,6 +47,10 @@ public class CANDriveTrainSystem extends Subsystem {
     //Tank Drive
     public void tankMove(double leftValue, double rightValue) {
     	drive.tankDrive(leftValue, rightValue);
+    }
+    
+    public void stop() {
+    	drive.arcadeDrive(0, 0);
     }
     
     //Returns continuous angle
