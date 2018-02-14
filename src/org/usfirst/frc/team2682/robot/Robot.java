@@ -7,7 +7,8 @@
 
 package org.usfirst.frc.team2682.robot;
 
-import org.usfirst.frc.team2682.robot.subsystems.PWMDriveTrainSystem;
+import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeWheels;
+import org.usfirst.frc.team2682.robot.subsystems.DriveTrainSystem;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
@@ -28,7 +29,8 @@ public class Robot extends TimedRobot {
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	
-	public static final PWMDriveTrainSystem drive = new PWMDriveTrainSystem();
+	public static final DriveTrainSystem drive = new DriveTrainSystem();
+	public static final CubeIntakeWheels intakeWheels = new CubeIntakeWheels();
 
 	/**
 	 * This function is run when the robot is first started up and should be

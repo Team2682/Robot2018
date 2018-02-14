@@ -24,10 +24,24 @@ public class RobotMap {
 	// public static int rangefinderPort = 1;
 	// public static int rangefinderModule = 1;
 	
+//Control System
+	//USB
 	public static int driveStickPort = 0;
 	
-	public static int driveMotorLeftFrontPort = 1;
-	public static int driveMotorRightFrontPort = 2;
-	public static int driveMotorLeftBackPort = 3;
-	public static int driveMotorRightBackPort = 4;
+//Driving System
+	//PWM
+	public static int leftDriveMotor = 0;
+	public static int rightDriveMotor = 1;
+	
+	//public static int driveMotorLeftFrontPort = 0;
+	//public static int driveMotorRightFrontPort = 1;
+	//public static int driveMotorLeftBackPort = 2;
+	//public static int driveMotorRightBackPort = 3;
+	
+//Cube Intake
+	//PWM
+	public static int cubeIntakeWheelLeft = 5,
+					  cubeIntakeWheelRight = 6;
+	
+	
 }
