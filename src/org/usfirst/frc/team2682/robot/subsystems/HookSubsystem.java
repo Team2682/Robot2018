@@ -1,5 +1,8 @@
 package org.usfirst.frc.team2682.robot.subsystems;
 
+import org.usfirst.frc.team2682.robot.Robot;
+import org.usfirst.frc.team2682.robot.RobotMap;
+
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -14,7 +17,7 @@ public class HookSubsystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-	TalonSRX hookMotor = new TalonSRX(4);
+	TalonSRX hookMotor = new TalonSRX(RobotMap.hookMotor);
 	
 	public HookSubsystem() {
 		//PID -- Someone end my misery.

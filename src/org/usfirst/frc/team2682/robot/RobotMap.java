@@ -58,7 +58,7 @@ public class RobotMap {
 	public static int hookMotor = 4;
 	//Speed
 	public static double mastSpeed = .5;
-	public static double hookSpeed = .5;
+	public static double hookSpeed = .375;
 	//Pneumatics
 	public static int brakeForwardChannel = 0,
 					  brakeReverseChannel = 1;

@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2682.robot.commands;
 
 import org.usfirst.frc.team2682.robot.Robot;
+import org.usfirst.frc.team2682.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -21,7 +22,7 @@ public class HookMoveForwardCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.hookSubsystem.moveAtSpeed(.375);
+    	Robot.hookSubsystem.moveAtSpeed(RobotMap.hookSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
