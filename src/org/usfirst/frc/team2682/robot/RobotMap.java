@@ -26,7 +26,7 @@ public class RobotMap {
 	
 //Control System
 	//USB
-	public static int driveStickPort = 0;
+	public static int driveStick = 0;
 	
 //Driving System
 	//PWM
@@ -40,8 +40,19 @@ public class RobotMap {
 	
 //Cube Intake
 	//PWM
-	public static int cubeIntakeWheelLeft = 5,
-					  cubeIntakeWheelRight = 6;
+	public static int leftCubeIntakeWheel = 2,
+					  rightCubeIntakeWheel = 3;
+	public static int leftCubeIntakeLinkage = 4,
+					  rightCubeIntakeLinkage = 5;
+	//CAN
+	public static int cubeIntakeArm = 1;
+	
+//Climbing/Mast
+	//CAN
+	public static int mastMotorOne = 2,
+					  mastMotorTwo = 3;
+	public static int hookMotor = 4;
+	
 	
 	
 }
