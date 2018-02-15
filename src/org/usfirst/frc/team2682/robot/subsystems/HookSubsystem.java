@@ -33,7 +33,7 @@ public class HookSubsystem extends Subsystem {
         //setDefaultCommand(new MySpecialCommand());
     }
     
-    public void goAtSpeed(double speed) {
+    public void moveAtSpeed(double speed) {
     	hookMotor.set(ControlMode.PercentOutput, speed);
     }
     

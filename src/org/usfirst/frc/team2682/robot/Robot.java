@@ -7,6 +7,7 @@
 
 package org.usfirst.frc.team2682.robot;
 
+import org.usfirst.frc.team2682.robot.subsystems.HookSubsystem;
 import org.usfirst.frc.team2682.robot.subsystems.PWMDriveTrainSystem;
 
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -29,7 +30,8 @@ public class Robot extends TimedRobot {
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	
 	//Initialize DriveTrainSystem
-	public static final PWMDriveTrainSystem DRIVE_TRAIN_SYSTEM = new PWMDriveTrainSystem();
+	public static final PWMDriveTrainSystem driveTrainSystem = new PWMDriveTrainSystem();
+	public static final HookSubsystem hookSubsystem = new HookSubsystem();
 
 	/**
 	 * This function is run when the robot is first started up and should be
