@@ -26,8 +26,9 @@ public class RobotMap {
 	
 	public static int driveStickPort = 0;
 	
-	public static int driveMotorLeftFrontPort = 1;
-	public static int driveMotorRightFrontPort = 2;
-	public static int driveMotorLeftBackPort = 3;
-	public static int driveMotorRightBackPort = 4;
+	public static int driveMotorLeftFrontPort = 0;
+	public static int driveMotorRightFrontPort = 1;
+	//public static int driveMotorLeftBackPort = 3;
+	//public static int driveMotorRightBackPort = 4;
+	
 }

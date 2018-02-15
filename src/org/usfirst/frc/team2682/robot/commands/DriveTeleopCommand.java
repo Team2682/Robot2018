@@ -13,7 +13,7 @@ public class DriveTeleopCommand extends Command {
     public DriveTeleopCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.drive);
+    	requires(Robot.DRIVE_TRAIN_SYSTEM);
     }
 
     // Called just before this Command runs the first time
@@ -23,7 +23,12 @@ public class DriveTeleopCommand extends Command {
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
     	//Basic Driving
-    	Robot.drive.move(Robot.oi.driveStick.getRawAxis(1), Robot.oi.driveStick.getRawAxis(0));
+    	
+    	//Move Axis (y-axis)
+    	double yAxis = Robot.oi.driveStick.getRawAxis(1);
+    	//Rotate Axis (x-axis)
+    	double xAxis = Robot.oi.driveStick.getRawAxis(0);
+    	Robot.DRIVE_TRAIN_SYSTEM.move(yAxis, xAxis);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,13 +39,13 @@ public class DriveTeleopCommand extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	//stops robot
-    	Robot.drive.stop();
+    	Robot.DRIVE_TRAIN_SYSTEM.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     	//stops robot
-    	Robot.drive.stop();
+    	Robot.DRIVE_TRAIN_SYSTEM.stop();
     }
 }

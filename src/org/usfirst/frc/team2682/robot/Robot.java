@@ -28,7 +28,8 @@ public class Robot extends TimedRobot {
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	
-	public static final PWMDriveTrainSystem drive = new PWMDriveTrainSystem();
+	//Initialize DriveTrainSystem
+	public static final PWMDriveTrainSystem DRIVE_TRAIN_SYSTEM = new PWMDriveTrainSystem();
 
 	/**
 	 * This function is run when the robot is first started up and should be
