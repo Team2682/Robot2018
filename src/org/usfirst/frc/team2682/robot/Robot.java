@@ -30,7 +30,7 @@
  * 
  * We pray to the Lords of all Video Gaming.
  * May Howard grant us immersion, may Kojima make even spectating enjoyable.
- * May Persson shows us to use cubes, may Fils-Aime keep us prepared.
+ * May Persson shows us how to use cubes, may Fils-Aime keep us prepared.
  * May Miyamoto bring us the fun, may Kaplan keep us "balanced".
  *  
  * May Iwata grant us his undying passion, his heart of a gamer.
