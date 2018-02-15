@@ -8,9 +8,9 @@ import edu.wpi.first.wpilibj.command.Command;
  * Command originally created by Grayson Amendt
  * Edited By: ---
  */
-public class DriveTeleopCommand extends Command {
+public class DriveCommand extends Command {
 
-    public DriveTeleopCommand() {
+    public DriveCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drive);
