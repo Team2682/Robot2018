@@ -47,6 +47,7 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
+<<<<<<< HEAD
 	public Joystick driveStick = new Joystick(RobotMap.driveStickPort);
 	
 	public Button hookForwardButton = new JoystickButton(driveStick, 0);
@@ -56,4 +57,7 @@ public class OI {
 		hookForwardButton.whileHeld(new HookMoveForwardCommand());
 		hookBackwardButton.whileHeld(new HookMoveBackCommand());
 	}
+=======
+	public Joystick driveStick = new Joystick(RobotMap.driveStick);
+>>>>>>> origin/dev
 }
