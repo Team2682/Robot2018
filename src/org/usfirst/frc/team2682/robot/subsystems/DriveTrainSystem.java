@@ -19,21 +19,18 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 public class DriveTrainSystem extends Subsystem {
 
 	//All of the drive motors (thank god there are only 4)
-<<<<<<< HEAD:src/org/usfirst/frc/team2682/robot/subsystems/PWMDriveTrainSystem.java
-	public Talon PWMdriveMotorLeft = new Talon(RobotMap.driveMotorLeftFrontPort);
-	public Talon PWMdriveMotorRight = new Talon(RobotMap.driveMotorRightFrontPort);
-=======
+
 	public Talon driveMotorLeftFront = new Talon(RobotMap.leftDriveMotor);
 	public Talon driveMotorRightFront = new Talon(RobotMap.rightDriveMotor);
 	//public Talon driveMotorLeftBack = new Talon(RobotMap.driveMotorLeftBackPort);
 	//public Talon driveMotorRightBack = new Talon(RobotMap.driveMotorRightBackPort);
->>>>>>> origin/dev:src/org/usfirst/frc/team2682/robot/subsystems/DriveTrainSystem.java
+
 	
 	//Most likely i2c port
 	public AHRS navX = new AHRS(I2C.Port.kOnboard);
 	
 	//Create a differential drive
-	DifferentialDrive drive = new DifferentialDrive(PWMdriveMotorLeft, PWMdriveMotorRight);
+	DifferentialDrive drive = new DifferentialDrive(driveMotorLeftFront, driveMotorRightFront);
 
 	//Empty constructor, for other things later on maybe
 	public DriveTrainSystem() {

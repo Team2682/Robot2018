@@ -13,7 +13,7 @@ public class DriveCommand extends Command {
     public DriveCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.driveTrainSystem);
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
@@ -28,7 +28,7 @@ public class DriveCommand extends Command {
     	double yAxis = Robot.oi.driveStick.getRawAxis(1);
     	//Rotate Axis (x-axis)
     	double xAxis = Robot.oi.driveStick.getRawAxis(0);
-    	Robot.driveTrainSystem.move(yAxis, xAxis);
+    	Robot.drive.move(yAxis, xAxis);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -39,13 +39,13 @@ public class DriveCommand extends Command {
     // Called once after isFinished returns true
     protected void end() {
     	//stops robot
-    	Robot.driveTrainSystem.stop();
+    	Robot.drive.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
     	//stops robot
-    	Robot.driveTrainSystem.stop();
+    	Robot.drive.stop();
     }
 }

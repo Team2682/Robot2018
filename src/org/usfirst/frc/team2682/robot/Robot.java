@@ -41,15 +41,10 @@
 
 package org.usfirst.frc.team2682.robot;
 
-<<<<<<< HEAD
 import org.usfirst.frc.team2682.robot.subsystems.HookSubsystem;
-import org.usfirst.frc.team2682.robot.subsystems.PWMDriveTrainSystem;
-=======
 import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeWheels;
 import org.usfirst.frc.team2682.robot.subsystems.DriveTrainSystem;
 import org.usfirst.frc.team2682.robot.subsystems.MastSubsystem;
->>>>>>> origin/dev
-
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -69,15 +64,11 @@ public class Robot extends TimedRobot {
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	
-<<<<<<< HEAD
-	//Initialize DriveTrainSystem
-	public static final PWMDriveTrainSystem driveTrainSystem = new PWMDriveTrainSystem();
 	public static final HookSubsystem hookSubsystem = new HookSubsystem();
-=======
+
 	public static final DriveTrainSystem drive = new DriveTrainSystem();
 	public static final CubeIntakeWheels intakeWheels = new CubeIntakeWheels();
 	public static final MastSubsystem mast = new MastSubsystem();
->>>>>>> origin/dev
 
 	/**
 	 * This function is run when the robot is first started up and should be
