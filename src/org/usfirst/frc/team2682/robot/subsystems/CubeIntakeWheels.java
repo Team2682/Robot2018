@@ -14,13 +14,13 @@ public class CubeIntakeWheels extends Subsystem {
 	Talon cubeIntakeWheelRight = new Talon(RobotMap.rightCubeIntakeWheel);
 	
 	public void takeInCube() {
-		cubeIntakeWheelLeft.set(.5);
-		cubeIntakeWheelRight.set(-.5);
+		cubeIntakeWheelLeft.set(RobotMap.wheelSpeed);
+		cubeIntakeWheelRight.set(-RobotMap.wheelSpeed);
 	}
 	
 	public void spitOutCube() {
-		cubeIntakeWheelLeft.set(-.5);
-		cubeIntakeWheelRight.set(.5);
+		cubeIntakeWheelLeft.set(-RobotMap.wheelSpeed);
+		cubeIntakeWheelRight.set(RobotMap.wheelSpeed);
 	}
 	
 	public void stop() {

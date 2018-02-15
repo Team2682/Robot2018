@@ -46,13 +46,21 @@ public class RobotMap {
 					  rightCubeIntakeLinkage = 5;
 	//CAN
 	public static int cubeIntakeArm = 1;
+	//Speed
+	public static double wheelSpeed = .5;
+	public static double linkageSpeed = .5;
+	public static double armSpeed = .5;
 	
 //Climbing/Mast
 	//CAN
 	public static int mastMotorOne = 2,
 					  mastMotorTwo = 3;
 	public static int hookMotor = 4;
-	
-	
+	//Speed
+	public static double mastSpeed = .5;
+	public static double hookSpeed = .5;
+	//Pneumatics
+	public static int brakeForwardChannel = 0,
+					  brakeReverseChannel = 1;
 	
 }
