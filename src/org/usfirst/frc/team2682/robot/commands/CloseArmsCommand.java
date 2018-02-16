@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class CloseArmsCommand extends Command {
 
     public CloseArmsCommand() {
-    	requires(Robot.cubearmcontrol);
+    	requires(Robot.cubeArmControl);
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     }
@@ -21,7 +21,7 @@ public class CloseArmsCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.cubearmcontrol.armTurnClose(0.1);
+    	Robot.cubeArmControl.armTurnClose(0.1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,13 +31,13 @@ public class CloseArmsCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.cubearmcontrol.stop();
+    	Robot.cubeArmControl.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.cubearmcontrol.stop();
+    	Robot.cubeArmControl.stop();
     	
     }
 }

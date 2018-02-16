@@ -9,6 +9,7 @@ package org.usfirst.frc.team2682.robot;
 
 import org.usfirst.frc.team2682.robot.commands.HookMoveBackCommand;
 import org.usfirst.frc.team2682.robot.commands.HookMoveForwardCommand;
+import org.usfirst.frc.team2682.robot.commands.OpenArmsCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -56,7 +57,7 @@ public class OI {
 		hookForwardButton.whileHeld(new HookMoveForwardCommand());
 		hookBackwardButton.whileHeld(new HookMoveBackCommand());
 	}
-
 	
-
+	public Button armOpenButton = new JoystickButton(driveStick, 2);
+	public Button armCloseButton = new JoystickButton(driveStick, 3);
 }
