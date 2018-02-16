@@ -59,6 +59,8 @@ public class RobotMap {
 	public static int mastMotorOne = 2,
 					  mastMotorTwo = 3;
 	public static int hookMotor = 4;
+	//DIO
+	public static int limitSwitch = 0;
 	//Speed
 	public static double mastSpeed = .5;
 	public static double hookSpeed = .375;
