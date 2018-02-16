@@ -7,6 +7,13 @@
 
 package org.usfirst.frc.team2682.robot;
 
+import org.usfirst.frc.team2682.robot.commands.HookMoveBackCommand;
+import org.usfirst.frc.team2682.robot.commands.HookMoveForwardCommand;
+
+import edu.wpi.first.wpilibj.Joystick;
+import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
+
 /**
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
@@ -39,4 +46,17 @@ public class OI {
 	// Start the command when the button is released and let it run the command
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
+	
+	public Joystick driveStick = new Joystick(RobotMap.driveStick);
+	
+	public Button hookForwardButton = new JoystickButton(driveStick, 0);
+	public Button hookBackwardButton = new JoystickButton(driveStick, 1);
+	
+	public OI() {
+		hookForwardButton.whileHeld(new HookMoveForwardCommand());
+		hookBackwardButton.whileHeld(new HookMoveBackCommand());
+	}
+
+	
+
 }
