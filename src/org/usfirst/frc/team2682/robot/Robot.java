@@ -74,7 +74,8 @@ public class Robot extends TimedRobot {
 	public static final DriveTrainSystem drive = new DriveTrainSystem();
 	public static final CubeIntakeWheelsSystem intakeWheels = new CubeIntakeWheelsSystem();
 	public static final MastSystem mast = new MastSystem();
-	public static final CubeIntakeArmsSystem cubearmcontrol = new CubeIntakeArmsSystem();
+	public static final CubeIntakeArmsSystem cubeArmControl = new CubeIntakeArmsSystem();
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
