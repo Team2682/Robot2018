@@ -7,11 +7,13 @@
 
 package org.usfirst.frc.team2682.robot;
 
+import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeArms;
 import org.usfirst.frc.team2682.robot.subsystems.PWMDriveTrainSystem;
 
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
+import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
@@ -29,6 +31,7 @@ public class Robot extends TimedRobot {
 	SendableChooser<Command> chooser = new SendableChooser<>();
 	
 	public static final PWMDriveTrainSystem drive = new PWMDriveTrainSystem();
+	public static final CubeIntakeArms cubearmcontrol = new CubeIntakeArms();
 
 	/**
 	 * This function is run when the robot is first started up and should be
