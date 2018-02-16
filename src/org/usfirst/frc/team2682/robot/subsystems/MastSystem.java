@@ -13,7 +13,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class MastSubsystem extends Subsystem {
+public class MastSystem extends Subsystem {
 
 	public TalonSRX mastOne = new TalonSRX(8);
 	public TalonSRX mastTwo = new TalonSRX(27);
