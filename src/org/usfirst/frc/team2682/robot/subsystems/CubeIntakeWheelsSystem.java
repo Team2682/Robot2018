@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class CubeIntakeWheels extends Subsystem {
+public class CubeIntakeWheelsSystem extends Subsystem {
 
 	Talon cubeIntakeWheelLeft = new Talon(RobotMap.leftCubeIntakeWheel);
 	Talon cubeIntakeWheelRight = new Talon(RobotMap.rightCubeIntakeWheel);

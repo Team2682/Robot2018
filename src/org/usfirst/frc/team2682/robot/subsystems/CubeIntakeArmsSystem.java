@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class CubeIntakeArms extends Subsystem {
+public class CubeIntakeArmsSystem extends Subsystem {
 
 	public TalonSRX cubeArmMotor = new TalonSRX(0);
 	
