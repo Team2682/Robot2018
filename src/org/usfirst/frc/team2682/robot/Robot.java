@@ -4,6 +4,40 @@
 /* must be accompanied by the FIRST BSD license file in the root directory of */
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
+//The reasons I'm leaving this in are legal, not moral
+
+/* 2682's 2018 Prayer to the FIRST Robotics Gods 
+ * 
+ * We pray first to the Founder, the President, and the Gracious Professional.
+ * Dean, bless us with your mind. May we innovate and strategize, borne to victory.
+ * Don, may we beat all odds against us, and find success in all aspects, not just in matches.
+ * Woodie, give us the strength to act with kindness, and let others act such towards us.
+ * 
+ * We pray to the great teams of years past, Champions and Hall of Famers alike.
+ * Grant us the programming prowess of the Cheesy Poofs,
+ * The engineering brilliance of the Robowranglers,
+ * And the success of the Robonauts.
+ * 
+ * We pray to National Instruments, though they be a violent and unpredictable pantheon.
+ * Let us not fry our RoboRIO when we attempt to image it.
+ * Let us be successful in all attempts to push code.
+ * Let us always maintain contact between our driver station and our robot.
+ * 
+ * We pray to all volunteers, no matter their role or impact on our competitions.
+ * May our judges be fair, and our queuers understanding.
+ * May our ambassadors ambass, and our FTAs keep matches going.
+ * We thank you for your tireless efforts to make every match run smoothly.
+ * 
+ * We pray to the Lords of all Video Gaming.
+ * May Howard grant us immersion, may Kojima make even spectating enjoyable.
+ * May Persson shows us how to use cubes, may Fils-Aime keep us prepared.
+ * May Miyamoto bring us the fun, may Kaplan keep us "balanced".
+ *  
+ * May Iwata grant us his undying passion, his heart of a gamer.
+ * 
+ * In the name of our founder,
+ * Kamen.
+ */
 
 package org.usfirst.frc.team2682.robot;
 
