@@ -15,10 +15,10 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class MastSystem extends Subsystem {
 
-	public TalonSRX mastOne = new TalonSRX(8);
-	public TalonSRX mastTwo = new TalonSRX(27);
+	public TalonSRX mastOne = new TalonSRX(RobotMap.mastMotorOne);
+	public TalonSRX mastTwo = new TalonSRX(RobotMap.mastMotorTwo);
 	
-	DigitalInput limitSwitch = new DigitalInput(564);
+	DigitalInput limitSwitch = new DigitalInput(RobotMap.limitSwitch);
 	
 	DoubleSolenoid brake = new DoubleSolenoid(RobotMap.brakeForwardChannel, RobotMap.brakeReverseChannel);
 	
