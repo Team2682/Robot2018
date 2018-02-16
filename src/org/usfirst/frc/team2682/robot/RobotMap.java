@@ -38,6 +38,9 @@ public class RobotMap {
 	//public static int driveMotorLeftBackPort = 2;
 	//public static int driveMotorRightBackPort = 3;
 	
+	//Settings
+	public static boolean isGyroContinuous = true;
+	
 //Cube Intake
 	//PWM
 	public static int leftCubeIntakeWheel = 2,
@@ -62,5 +65,9 @@ public class RobotMap {
 	//Pneumatics
 	public static int brakeForwardChannel = 0,
 					  brakeReverseChannel = 1;
-	
+
+//Miscellaneous
+	//Logging
+	public static String logDirectory = "/home/lvuser/";
+	public static String logFilename = "log.txt";
 }
