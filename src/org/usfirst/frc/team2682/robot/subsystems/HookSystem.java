@@ -12,14 +12,14 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 /**
  *
  */
-public class HookSubsystem extends Subsystem {
+public class HookSystem extends Subsystem {
 
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
 	TalonSRX hookMotor = new TalonSRX(RobotMap.hookMotor);
 	
-	public HookSubsystem() {
+	public HookSystem() {
 		//PID -- Someone end my misery.
 		hookMotor.selectProfileSlot(0, 0);
 		hookMotor.config_kF(0, 0.2, 40);
