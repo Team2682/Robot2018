@@ -10,7 +10,7 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class CubeIntakeArmsSystem extends Subsystem {
 
-	public TalonSRX cubeArmMotor = new TalonSRX(0);
+	public TalonSRX cubeArmMotor = new TalonSRX(RobotMap.cubeIntakeArm);
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
