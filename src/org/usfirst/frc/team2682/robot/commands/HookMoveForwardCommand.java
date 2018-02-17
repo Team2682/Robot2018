@@ -13,7 +13,7 @@ public class HookMoveForwardCommand extends Command {
     public HookMoveForwardCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.hookSubsystem);
+    	requires(Robot.hook);
     }
 
     // Called just before this Command runs the first time
@@ -22,7 +22,7 @@ public class HookMoveForwardCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.hookSubsystem.moveAtSpeed(RobotMap.hookSpeed);
+    	Robot.hook.moveAtSpeed(RobotMap.hookSpeed);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -32,12 +32,12 @@ public class HookMoveForwardCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.hookSubsystem.stop();
+    	Robot.hook.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.hookSubsystem.stop();
+    	Robot.hook.stop();
     }
 }

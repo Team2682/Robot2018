@@ -12,7 +12,7 @@ public class CubeOuttakeCommand extends Command {
     public CubeOuttakeCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.intakeWheels);
+    	requires(Robot.wheels);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +21,7 @@ public class CubeOuttakeCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.intakeWheels.spitOutCube();
+    	Robot.wheels.spitOutCube();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,12 +31,12 @@ public class CubeOuttakeCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.intakeWheels.stop();
+    	Robot.wheels.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.intakeWheels.stop();
+    	Robot.wheels.stop();
     }
 }

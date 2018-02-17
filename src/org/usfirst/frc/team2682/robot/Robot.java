@@ -1,11 +1,3 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-//The reasons I'm leaving this in are legal, not moral
-
 /* 2682's 2018 Prayer to the FIRST Robotics Gods 
  * 
  * We pray first to the Founder, the President, and the Gracious Professional.
@@ -39,15 +31,22 @@
  * Kamen.
  */
 
-package org.usfirst.frc.team2682.robot;
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+//The reasons I'm leaving this in are legal, not moral
 
+package org.usfirst.frc.team2682.robot;
 
 import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeArmsSystem;
 import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeWheelsSystem;
 import org.usfirst.frc.team2682.robot.subsystems.DriveTrainSystem;
+import org.usfirst.frc.team2682.robot.subsystems.FourBarLinkageSystem;
 import org.usfirst.frc.team2682.robot.subsystems.HookSystem;
 import org.usfirst.frc.team2682.robot.subsystems.MastSystem;
-
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -66,11 +65,12 @@ public class Robot extends TimedRobot {
 
 	Command autonomousCommand;
 	SendableChooser<Command> chooser = new SendableChooser<>();
-	public static final HookSystem hookSubsystem = new HookSystem();
+	public static final HookSystem hook = new HookSystem();
 	public static final DriveTrainSystem drive = new DriveTrainSystem();
-	public static final CubeIntakeWheelsSystem intakeWheels = new CubeIntakeWheelsSystem();
+	public static final CubeIntakeWheelsSystem wheels = new CubeIntakeWheelsSystem();
 	public static final MastSystem mast = new MastSystem();
-	public static final CubeIntakeArmsSystem cubeArmControl = new CubeIntakeArmsSystem();
+	public static final CubeIntakeArmsSystem arms = new CubeIntakeArmsSystem();
+	public static final FourBarLinkageSystem linkage = new FourBarLinkageSystem();
 	
 	/**
 	 * This function is run when the robot is first started up and should be
