@@ -3,7 +3,6 @@ package org.usfirst.frc.team2682.robot.subsystems;
 import org.usfirst.frc.team2682.robot.RobotMap;
 import org.usfirst.frc.team2682.robot.commands.DriveCommand;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.I2C;

@@ -1,6 +1,5 @@
 package org.usfirst.frc.team2682.robot.subsystems;
 
-import org.usfirst.frc.team2682.robot.Robot;
 import org.usfirst.frc.team2682.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
