@@ -1,11 +1,3 @@
-/*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
-/*----------------------------------------------------------------------------*/
-//The reasons I'm leaving this in are legal, not moral
-
 /* 2682's 2018 Prayer to the FIRST Robotics Gods 
  * 
  * We pray first to the Founder, the President, and the Gracious Professional.
@@ -39,8 +31,15 @@
  * Kamen.
  */
 
-package org.usfirst.frc.team2682.robot;
+/*----------------------------------------------------------------------------*/
+/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
+/* Open Source Software - may be modified and shared by FRC teams. The code   */
+/* must be accompanied by the FIRST BSD license file in the root directory of */
+/* the project.                                                               */
+/*----------------------------------------------------------------------------*/
+//The reasons I'm leaving this in are legal, not moral
 
+package org.usfirst.frc.team2682.robot;
 
 import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeArmsSystem;
 import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeWheelsSystem;
@@ -48,7 +47,6 @@ import org.usfirst.frc.team2682.robot.subsystems.DriveTrainSystem;
 import org.usfirst.frc.team2682.robot.subsystems.FourBarLinkageSystem;
 import org.usfirst.frc.team2682.robot.subsystems.HookSystem;
 import org.usfirst.frc.team2682.robot.subsystems.MastSystem;
-
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
