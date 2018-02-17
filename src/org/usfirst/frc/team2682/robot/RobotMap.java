@@ -27,6 +27,7 @@ public class RobotMap {
 //Control System
 	//USB
 	public static int driveStick = 0;
+	public static int auxStick = 0;
 	
 	//AuxStick Buttons
 	public static int armsOpen = 0,
@@ -47,6 +48,12 @@ public class RobotMap {
 					  altArmsClose = 4;
 	public static int altWheelsIntake = 3,
 					  altWheelsEject = 5;
+	public static int altHookForward = 6,
+					  altHookBackward = 7;
+	public static int altLinkageUp = 8,
+					  altLinkageDown = 9;
+	public static int altMastUp = 10,
+					  altMastDown = 11;
 	
 	//DriveStick Axes
 	public static int moveAxis = 1,
@@ -71,9 +78,9 @@ public class RobotMap {
 	//PWM
 	public static int leftCubeIntakeWheel = 2,
 					  rightCubeIntakeWheel = 3;
-	public static int leftCubeIntakeLinkage = 4,
-					  rightCubeIntakeLinkage = 5;
 	//CAN
+	public static int leftCubeIntakeLinkage = 5,
+					  rightCubeIntakeLinkage = 6;
 	public static int cubeIntakeArm = 1;
 	//Speed
 	public static double wheelSpeed = .5;
