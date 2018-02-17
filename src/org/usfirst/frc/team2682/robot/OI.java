@@ -9,7 +9,6 @@ package org.usfirst.frc.team2682.robot;
 
 import org.usfirst.frc.team2682.robot.commands.HookMoveBackCommand;
 import org.usfirst.frc.team2682.robot.commands.HookMoveForwardCommand;
-import org.usfirst.frc.team2682.robot.commands.OpenArmsCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
