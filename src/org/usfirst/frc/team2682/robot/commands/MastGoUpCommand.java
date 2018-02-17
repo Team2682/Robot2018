@@ -17,11 +17,11 @@ public class MastGoUpCommand extends Command {
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.mast.openBrake();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	Robot.mast.openBrake();
     	Robot.mast.goUp();
     }
 
