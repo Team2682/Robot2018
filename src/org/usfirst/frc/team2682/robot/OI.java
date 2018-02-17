@@ -51,12 +51,19 @@ public class OI {
 	
 	public Button hookForwardButton = new JoystickButton(driveStick, 0);
 	public Button hookBackwardButton = new JoystickButton(driveStick, 1);
+	public Button armOpenButton = new JoystickButton(driveStick, 2);
+	public Button armCloseButton = new JoystickButton(driveStick, 3);
+	//CHANGE THESE VALUES LATER
+	
+	public Button altWheelEjectButton = new JoystickButton(driveStick, 5);
+	public Button altWheelIntakeButton = new JoystickButton(driveStick, 3);
+	public Button altArmOpenButton1 = new JoystickButton(driveStick, 2);
+	public Button altArmCloseButton = new JoystickButton(driveStick, 4);
+	
 	
 	public OI() {
 		hookForwardButton.whileHeld(new HookMoveForwardCommand());
 		hookBackwardButton.whileHeld(new HookMoveBackCommand());
 	}
 	
-	public Button armOpenButton = new JoystickButton(driveStick, 2);
-	public Button armCloseButton = new JoystickButton(driveStick, 3);
 }

@@ -1,14 +1,23 @@
 package org.usfirst.frc.team2682.robot.commands;
 
-import org.usfirst.frc.team2682.robot.Robot;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
+import org.usfirst.frc.team2682.robot.Robot;
+import org.usfirst.frc.team2682.robot.RobotMap;
+import org.usfirst.frc.team2682.robot.utilities.Miscellaneous;
+
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
 public class CubeOuttakeCommand extends Command {
-
+	
+	
+	
     public CubeOuttakeCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -21,7 +30,14 @@ public class CubeOuttakeCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.wheels.spitOutCube();
+    	double speed;
+    	if(DriverStation.getInstance().isAutonomous()) {
+    		Robot.wheels.spitOutCube();
+    	}
+    	else {
+    		speed = Miscellaneous.map(-1, 1, 0, 1, Robot.oi.driveStick.getRawAxis(RobotMap.wheelsSpeedAxis));
+    		Robot.wheels.spitOutCube(speed);
+    	}
     }
 
     // Make this return true when this Command no longer needs to run execute()

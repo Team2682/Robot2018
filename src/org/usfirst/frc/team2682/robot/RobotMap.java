@@ -28,6 +28,32 @@ public class RobotMap {
 	//USB
 	public static int driveStick = 0;
 	
+	//AuxStick Buttons
+	public static int armsOpen = 0,
+					  armsClose = 1;
+	public static int wheelsIntake = 2,
+					  wheelsEject = 3;
+	public static int linkageUp = 4,
+					  linkageDown = 5;
+	public static int hookForward = 6,
+					  hookBackward = 7;
+	public static int mastUp = 8,
+					  mastDown = 9;
+	
+	//DriveStick Buttons
+	public static int driveFullSpeed = 0, 
+					  driveHalfSpeed = 1; 
+	public static int altArmsOpen = 2,
+					  altArmsClose = 4;
+	public static int altWheelsIntake = 3,
+					  altWheelsEject = 5;
+	
+	//DriveStick Axes
+	public static int moveAxis = 1,
+					  turnAxis = 0;
+	public static int wheelsSpeedAxis = 3;
+	
+	
 //Driving System
 	//PWM
 	public static int leftDriveMotor = 0;
