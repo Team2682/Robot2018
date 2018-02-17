@@ -6,6 +6,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
@@ -15,6 +16,9 @@ public class FourBarLinkageSystem extends Subsystem {
 	
 	TalonSRX linkageLeft = new TalonSRX(RobotMap.leftCubeIntakeLinkage);
 	TalonSRX linkageRight = new TalonSRX(RobotMap.rightCubeIntakeLinkage);
+	
+	DigitalInput limitSwitchTop = new DigitalInput(1);
+	DigitalInput limitSwitchBottom = new DigitalInput(2);
 	
 	public FourBarLinkageSystem() {
 		linkageLeft.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 255);
@@ -45,6 +49,14 @@ public class FourBarLinkageSystem extends Subsystem {
 	
 	public double getCurrentPositionRight() {
 		return linkageRight.getSelectedSensorPosition(0);
+	}
+	
+	public boolean isLimitSwitchTop() {
+		return limitSwitchTop.get();
+	}
+	
+	public boolean isLimitSwitchBottom() {
+		return limitSwitchBottom.get();
 	}
 	
     public void initDefaultCommand() {
