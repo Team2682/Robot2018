@@ -7,44 +7,36 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class MastGoUpCommand extends Command {
+public class FourBarMoveDownCommand extends Command {
 
-    public MastGoUpCommand() {
+    public FourBarMoveDownCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.mast);
+    	requires(Robot.linkage);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	Robot.mast.openBrake();
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.mast.goUp();
+    	Robot.linkage.goDown();
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        if(Robot.mast.getLimitSwitchState()) {
-        	return true;
-        }
-        else {
-        	return false;
-        }
+        return Robot.linkage.isLimitSwitchBottom();
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.mast.closeBrake();
-    	Robot.mast.stop();
+    	Robot.linkage.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.mast.closeBrake();
-    	Robot.mast.stop();
+    	Robot.linkage.stop();
     }
 }
