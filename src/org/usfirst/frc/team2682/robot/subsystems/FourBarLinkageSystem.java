@@ -25,13 +25,13 @@ public class FourBarLinkageSystem extends Subsystem {
     // here. Call these from Commands.
 
 	public void goUp() {
-		linkageLeft.set(ControlMode.PercentOutput, .35);
-		linkageRight.set(ControlMode.PercentOutput, -.35);
+		linkageLeft.set(ControlMode.PercentOutput, RobotMap.linkageSpeed);
+		linkageRight.set(ControlMode.PercentOutput, -RobotMap.linkageSpeed);
 	}
 	
 	public void goDown() {
-		linkageLeft.set(ControlMode.PercentOutput, -.35);
-		linkageRight.set(ControlMode.PercentOutput, .35);		
+		linkageLeft.set(ControlMode.PercentOutput, -RobotMap.linkageSpeed);
+		linkageRight.set(ControlMode.PercentOutput, RobotMap.linkageSpeed);		
 	}
 	
 	public void stop() {

@@ -51,7 +51,7 @@ public class RobotMap {
 	public static int cubeIntakeArm = 1;
 	//Speed
 	public static double wheelSpeed = .5;
-	public static double linkageSpeed = .5;
+	public static double linkageSpeed = .35;
 	public static double armSpeed = .5;
 	
 //Climbing/Mast
