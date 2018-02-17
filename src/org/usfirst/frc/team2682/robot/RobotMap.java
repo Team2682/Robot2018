@@ -45,8 +45,8 @@ public class RobotMap {
 	//PWM
 	public static int leftCubeIntakeWheel = 2,
 					  rightCubeIntakeWheel = 3;
-	public static int leftCubeIntakeLinkage = 4,
-					  rightCubeIntakeLinkage = 5;
+	public static int leftBARLinkage = 4,
+					  rightBARLinkage = 5;
 	//CAN
 	public static int cubeIntakeArm = 1;
 	//Speed
