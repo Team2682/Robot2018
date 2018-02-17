@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2682.robot.commands;
 
 import org.usfirst.frc.team2682.robot.Robot;
+import org.usfirst.frc.team2682.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -22,13 +23,26 @@ public class DriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
+    	double modifier;
+    	
     	//Basic Driving
     	
     	//Move Axis (y-axis)
     	double yAxis = Robot.oi.driveStick.getRawAxis(1);
     	//Rotate Axis (x-axis)
     	double xAxis = Robot.oi.driveStick.getRawAxis(0);
-    	Robot.drive.move(yAxis, xAxis);
+    	
+    	if(Robot.oi.driveStick.getRawButton(RobotMap.driveFullSpeed)) {
+    		modifier = 1;
+    	}
+    	else if(Robot.oi.driveStick.getRawButton(RobotMap.driveHalfSpeed)) {
+    		modifier = .5;
+    	}
+    	else {
+    		modifier = .75;
+    	}
+    	
+    	Robot.drive.move(yAxis * modifier, xAxis * modifier);
     }
 
     // Make this return true when this Command no longer needs to run execute()
