@@ -7,6 +7,7 @@ import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -19,8 +20,8 @@ public class DriveTrainSystem extends Subsystem {
 
 	//All of the drive motors (thank god there are only 4)
 
-	public Talon driveMotorLeftFront = new Talon(RobotMap.leftDriveMotor);
-	public Talon driveMotorRightFront = new Talon(RobotMap.rightDriveMotor);
+	public VictorSP driveMotorLeftFront = new VictorSP(RobotMap.leftDriveMotor);
+	public VictorSP driveMotorRightFront = new VictorSP(RobotMap.rightDriveMotor);
 	//public Talon driveMotorLeftBack = new Talon(RobotMap.driveMotorLeftBackPort);
 	//public Talon driveMotorRightBack = new Talon(RobotMap.driveMotorRightBackPort);
 
