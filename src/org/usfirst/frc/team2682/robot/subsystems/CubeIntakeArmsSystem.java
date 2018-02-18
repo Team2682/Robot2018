@@ -26,16 +26,8 @@ public class CubeIntakeArmsSystem extends Subsystem {
 		cubeArmMotor.set(ControlMode.PercentOutput, value);
 	}
 	
-	public void armsTurnOpen() {
-		cubeArmMotor.set(ControlMode.PercentOutput, RobotMap.armSpeed);
-	}
-	
 	public void armsTurnClosed(double value) {
 		cubeArmMotor.set(ControlMode.PercentOutput, -value);
-	}
-	
-	public void armsTurnClosed() {
-		cubeArmMotor.set(ControlMode.PercentOutput, -RobotMap.armSpeed);
 	}
 	
 	public void stop() {

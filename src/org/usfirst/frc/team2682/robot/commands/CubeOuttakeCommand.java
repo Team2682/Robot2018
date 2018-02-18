@@ -36,6 +36,7 @@ public class CubeOuttakeCommand extends Command {
     	}
     	else {
     		speed = Miscellaneous.map(-1, 1, 0, 1, Robot.oi.driveStick.getRawAxis(RobotMap.wheelsSpeedAxis));
+    		speed = 1 - speed;
     		Robot.wheels.spitOutCube(speed);
     	}
     }

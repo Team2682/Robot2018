@@ -31,6 +31,8 @@
  * Kamen.
  */
 
+package org.usfirst.frc.team2682.robot;
+
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -38,8 +40,6 @@
 /* the project.                                                               */
 /*----------------------------------------------------------------------------*/
 //The reasons I'm leaving this in are legal, not moral
-
-package org.usfirst.frc.team2682.robot;
 
 import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeArmsSystem;
 import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeWheelsSystem;
