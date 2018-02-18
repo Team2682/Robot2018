@@ -43,7 +43,7 @@ public class DriveTrainSystem extends Subsystem {
     
     //Arcade Drive
     public void move(double moveValue, double rotateValue) {
-    	drive.arcadeDrive(moveValue, rotateValue);
+    	drive.arcadeDrive(moveValue, -rotateValue);
     }
     
     //Tank Drive
