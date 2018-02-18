@@ -21,8 +21,8 @@ public class FourBarLinkageSystem extends Subsystem {
 	DigitalInput limitSwitchBottom = new DigitalInput(2);
 	
 	public FourBarLinkageSystem() {
-		linkageLeft.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 255);
-		linkageRight.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 255);
+		//linkageLeft.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 255);
+		//linkageRight.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 255);
 	}
 
     // Put methods for controlling this subsystem
@@ -43,13 +43,13 @@ public class FourBarLinkageSystem extends Subsystem {
 		linkageRight.set(ControlMode.PercentOutput, 0);	
 	}
 	
-	public double getCurrentPositionLeft() {
+	/*public double getCurrentPositionLeft() {
     	return linkageLeft.getSelectedSensorPosition(0);
     }
 	
 	public double getCurrentPositionRight() {
 		return linkageRight.getSelectedSensorPosition(0);
-	}
+	}*/
 	
 	public boolean isLimitSwitchTop() {
 		return limitSwitchTop.get();
