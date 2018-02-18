@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2682.robot.commands;
 
 import org.usfirst.frc.team2682.robot.Robot;
+import org.usfirst.frc.team2682.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -9,10 +10,18 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class LinkageMoveUpCommand extends Command {
 
+	double speed;
+	
     public LinkageMoveUpCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.linkage);
+    	this.speed = RobotMap.linkageSpeed;
+    }
+    
+    public LinkageMoveUpCommand(double speed) {
+    	requires(Robot.linkage);
+    	this.speed = speed;
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +30,7 @@ public class LinkageMoveUpCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.linkage.goUp();
+    	Robot.linkage.goUp(speed);
     }
 
     // Make this return true when this Command no longer needs to run execute()

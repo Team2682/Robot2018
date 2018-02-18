@@ -3,7 +3,6 @@ package org.usfirst.frc.team2682.robot.subsystems;
 import org.usfirst.frc.team2682.robot.RobotMap;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.DigitalInput;
@@ -28,14 +27,14 @@ public class FourBarLinkageSystem extends Subsystem {
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
-	public void goUp() {
-		linkageLeft.set(ControlMode.PercentOutput, RobotMap.linkageSpeed);
-		linkageRight.set(ControlMode.PercentOutput, -RobotMap.linkageSpeed);
+	public void goUp(double speed) {
+		linkageLeft.set(ControlMode.PercentOutput, speed);
+		linkageRight.set(ControlMode.PercentOutput, -speed);
 	}
 	
-	public void goDown() {
-		linkageLeft.set(ControlMode.PercentOutput, -RobotMap.linkageSpeed);
-		linkageRight.set(ControlMode.PercentOutput, RobotMap.linkageSpeed);		
+	public void goDown(double speed) {
+		linkageLeft.set(ControlMode.PercentOutput, -speed);
+		linkageRight.set(ControlMode.PercentOutput, speed);		
 	}
 	
 	public void stop() {
