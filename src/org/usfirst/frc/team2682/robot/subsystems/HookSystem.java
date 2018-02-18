@@ -27,7 +27,7 @@ public class HookSystem extends Subsystem {
 		hookMotor.config_kD(0, 0.0, 10);
 		
 		//Add Encoder
-		hookMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 255);
+		//hookMotor.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 255);
 	}
 	
     public void initDefaultCommand() {
