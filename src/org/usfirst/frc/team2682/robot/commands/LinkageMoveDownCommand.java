@@ -5,14 +5,14 @@ import org.usfirst.frc.team2682.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * renamed for consistency
  */
-public class CloseArmsCommand extends Command {
+public class LinkageMoveDownCommand extends Command {
 
-    public CloseArmsCommand() {
-    	requires(Robot.arms);
+    public LinkageMoveDownCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
+    	requires(Robot.linkage);
     }
 
     // Called just before this Command runs the first time
@@ -21,7 +21,7 @@ public class CloseArmsCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.arms.armTurnClose(1);
+    	Robot.linkage.goDown();
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -31,13 +31,12 @@ public class CloseArmsCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.arms.stop();
+    	Robot.linkage.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.arms.stop();
-    	
+    	Robot.linkage.stop();
     }
 }

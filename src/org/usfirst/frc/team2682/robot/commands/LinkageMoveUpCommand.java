@@ -5,11 +5,11 @@ import org.usfirst.frc.team2682.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * renamed for consistency
  */
-public class FourBarMoveUpCommand extends Command {
+public class LinkageMoveUpCommand extends Command {
 
-    public FourBarMoveUpCommand() {
+    public LinkageMoveUpCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.linkage);
