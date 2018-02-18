@@ -7,16 +7,16 @@
 
 package org.usfirst.frc.team2682.robot;
 
-import org.usfirst.frc.team2682.robot.commands.CloseArmsCommand;
+import org.usfirst.frc.team2682.robot.commands.ArmsCloseCommand;
 import org.usfirst.frc.team2682.robot.commands.CubeIntakeCommand;
 import org.usfirst.frc.team2682.robot.commands.CubeOuttakeCommand;
-import org.usfirst.frc.team2682.robot.commands.FourBarMoveDownCommand;
-import org.usfirst.frc.team2682.robot.commands.FourBarMoveUpCommand;
+import org.usfirst.frc.team2682.robot.commands.LinkageMoveDownCommand;
+import org.usfirst.frc.team2682.robot.commands.LinkageMoveUpCommand;
 import org.usfirst.frc.team2682.robot.commands.HookMoveBackCommand;
 import org.usfirst.frc.team2682.robot.commands.HookMoveForwardCommand;
 import org.usfirst.frc.team2682.robot.commands.MastGoDownCommand;
 import org.usfirst.frc.team2682.robot.commands.MastGoUpCommand;
-import org.usfirst.frc.team2682.robot.commands.OpenArmsCommand;
+import org.usfirst.frc.team2682.robot.commands.ArmsOpenCommand;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
@@ -85,23 +85,23 @@ public class OI {
 	public OI() {
 		hookForwardButton.whileHeld(new HookMoveForwardCommand());
 		hookBackwardButton.whileHeld(new HookMoveBackCommand());
-		armOpenButton.whileHeld(new OpenArmsCommand());
-		armCloseButton.whileHeld(new CloseArmsCommand());
+		armOpenButton.whileHeld(new ArmsOpenCommand());
+		armCloseButton.whileHeld(new ArmsCloseCommand());
 		wheelIntakeButton.whileHeld(new CubeIntakeCommand());
 		wheelEjectButton.whileHeld(new CubeOuttakeCommand());
-		linkageUpButton.whileHeld(new FourBarMoveUpCommand());
-		linkageDownButton.whileHeld(new FourBarMoveDownCommand());
+		linkageUpButton.whileHeld(new LinkageMoveUpCommand());
+		linkageDownButton.whileHeld(new LinkageMoveDownCommand());
 		mastUpButton.whileHeld(new MastGoUpCommand());
 		mastDownButton.whileHeld(new MastGoDownCommand());
 		
 		altHookForwardButton.whileHeld(new HookMoveForwardCommand());
 		altHookBackwardButton.whileHeld(new HookMoveBackCommand());
-		altArmOpenButton.whileHeld(new OpenArmsCommand());
-		altArmCloseButton.whileHeld(new CloseArmsCommand());
+		altArmOpenButton.whileHeld(new ArmsOpenCommand());
+		altArmCloseButton.whileHeld(new ArmsCloseCommand());
 		altWheelIntakeButton.whileHeld(new CubeIntakeCommand());
 		altWheelEjectButton.whileHeld(new CubeOuttakeCommand());
-		altLinkageUpButton.whileHeld(new FourBarMoveUpCommand());
-		altLinkageDownButton.whileHeld(new FourBarMoveDownCommand());
+		altLinkageUpButton.whileHeld(new LinkageMoveUpCommand());
+		altLinkageDownButton.whileHeld(new LinkageMoveDownCommand());
 		altMastUpButton.whileHeld(new MastGoUpCommand());
 		altMastDownButton.whileHeld(new MastGoDownCommand());
 	}

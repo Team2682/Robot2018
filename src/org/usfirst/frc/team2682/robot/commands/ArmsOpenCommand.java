@@ -5,11 +5,11 @@ import org.usfirst.frc.team2682.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- *
+ * renamed for consistency
  */
-public class OpenArmsCommand extends Command {
+public class ArmsOpenCommand extends Command {
 
-    public OpenArmsCommand() {
+    public ArmsOpenCommand() {
     	requires(Robot.arms);
     	// Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
@@ -21,7 +21,7 @@ public class OpenArmsCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.arms.armTurnOpen(1);
+    	Robot.arms.armsTurnOpen();
     }
 
     // Make this return true when this Command no longer needs to run execute()

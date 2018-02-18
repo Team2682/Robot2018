@@ -85,7 +85,7 @@ public class RobotMap {
 	//Speed
 	public static double wheelSpeed = 1;
 	public static double linkageSpeed = 1;
-	public static double armSpeed = .5;
+	public static double armSpeed = 1;
 	
 //Climbing/Mast
 	//CAN
