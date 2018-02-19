@@ -1,7 +1,5 @@
 package org.usfirst.frc.team2682.robot.utilities;
 
-import org.usfirst.frc.team2682.robot.RobotMap;
-
 public class PIDDriveTargeting {
 
 	private double pValue;
@@ -21,22 +19,7 @@ public class PIDDriveTargeting {
 	}
 
 	public double calculateCorrection(double setpoint, double currentPoint) {
-		if(RobotMap.isGyroContinuous) {
-			error = setpoint - currentPoint;		}
-		else {
-			if(setpoint < 0) {
-				setpoint += 360;
-			}
-			if(currentPoint < 0) {
-				currentPoint += 360;
-			}
-			
-			error = Math.abs(setpoint - currentPoint);
-			
-			if(error > 180) {
-				error = 360 - error;
-			}
-		}
+		error = setpoint - currentPoint;
 		correctionValue = Math.abs(error) * pValue;	
 		return correctionValue;
 	}

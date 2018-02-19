@@ -5,6 +5,8 @@ import org.usfirst.frc.team2682.robot.commands.DriveCommand;
 
 import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.wpilibj.CounterBase.EncodingType;
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -19,14 +21,16 @@ public class DriveTrainSystem extends Subsystem {
 
 	//All of the drive motors (thank god there are only 4)
 
-	public VictorSP driveMotorLeftFront = new VictorSP(RobotMap.leftDriveMotor);
-	public VictorSP driveMotorRightFront = new VictorSP(RobotMap.rightDriveMotor);
+	VictorSP driveMotorLeftFront = new VictorSP(RobotMap.leftDriveMotor);
+	VictorSP driveMotorRightFront = new VictorSP(RobotMap.rightDriveMotor);
 	//public Talon driveMotorLeftBack = new Talon(RobotMap.driveMotorLeftBackPort);
 	//public Talon driveMotorRightBack = new Talon(RobotMap.driveMotorRightBackPort);
 
-	
+	Encoder leftEncoder = new Encoder(RobotMap.leftEncoderA, RobotMap.leftEncoderB, false, EncodingType.k4X);
+	Encoder rightEncoder = new Encoder(RobotMap.rightEncoderA, RobotMap.rightEncoderB, false, EncodingType.k4X);
+
 	//Most likely i2c port
-	public AHRS navX = new AHRS(I2C.Port.kOnboard);
+	AHRS navX = new AHRS(I2C.Port.kOnboard);
 	
 	//Create a differential drive
 	DifferentialDrive drive = new DifferentialDrive(driveMotorLeftFront, driveMotorRightFront);
@@ -60,9 +64,12 @@ public class DriveTrainSystem extends Subsystem {
     	return navX.getAngle();
     }
     
-    //Returns discontinuous angle
-    public double getCurrentHeading180() {
-    	return navX.getYaw();
+    public int getLeftEncoderValue() {
+    	return leftEncoder.get();
+    }
+    
+    public int getRightEncoderValue() {
+    	return rightEncoder.get();
     }
 }
 
