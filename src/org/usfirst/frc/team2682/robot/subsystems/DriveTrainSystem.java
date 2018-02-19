@@ -6,7 +6,6 @@ import org.usfirst.frc.team2682.robot.commands.DriveCommand;
 import com.kauailabs.navx.frc.AHRS;
 
 import edu.wpi.first.wpilibj.I2C;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
@@ -44,7 +43,7 @@ public class DriveTrainSystem extends Subsystem {
     
     //Arcade Drive
     public void move(double moveValue, double rotateValue) {
-    	drive.arcadeDrive(moveValue, rotateValue);
+    	drive.arcadeDrive(moveValue, -rotateValue);
     }
     
     //Tank Drive

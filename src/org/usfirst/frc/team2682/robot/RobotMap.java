@@ -96,7 +96,7 @@ public class RobotMap {
 	//DIO
 	public static int limitSwitch = 0;
 	//Speed
-	public static double mastSpeed = .5;
+	public static double mastSpeed = 1;
 	public static double hookSpeed = .375;
 	//Pneumatics
 	public static int brakeForwardChannel = 1,
