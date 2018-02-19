@@ -25,8 +25,8 @@ public class MastSystem extends Subsystem {
 		mastMotor2.set(ControlMode.PercentOutput, speed);
 	}
 	public void goDown(double speed) {
-		mastMotor1.set(ControlMode.PercentOutput, speed);
-		mastMotor2.set(ControlMode.PercentOutput, speed);
+		mastMotor1.set(ControlMode.PercentOutput, -speed);
+		mastMotor2.set(ControlMode.PercentOutput, -speed);
 	}
 	
 	public void stop() {

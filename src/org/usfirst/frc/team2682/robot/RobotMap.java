@@ -71,6 +71,12 @@ public class RobotMap {
 	//public static int driveMotorLeftBackPort = 2;
 	//public static int driveMotorRightBackPort = 3;
 	
+	//DIO
+	public static int leftEncoderA = 0,
+					  leftEncoderB = 1;
+	public static int rightEncoderA = 2,
+					  rightEncoderB = 3;
+	
 	//Settings
 	public static boolean isGyroContinuous = true;
 	
@@ -106,4 +112,9 @@ public class RobotMap {
 	//Logging
 	public static String logDirectory = "/home/lvuser/";
 	public static String logFilename = "log.txt";
+	//PID tuning values;
+	public static double kP = 1.0/180.0;
+	public static double kI = 0;
+	public static double kD = 0;
+	public static double kF = 0;
 }
