@@ -9,14 +9,14 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class DriveTurnAutoCommand extends Command {
+public class AutoDriveTurnCommand extends Command {
 	
 	PIDDriveTargeting pid = new PIDDriveTargeting(RobotMap.kP);
 	double setAngle;
 	double speed;
 	double threshold;
 
-    public DriveTurnAutoCommand(double setAngle, double speed, double threshold) {
+    public AutoDriveTurnCommand(double setAngle, double speed, double threshold) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drive);
