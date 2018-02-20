@@ -37,14 +37,14 @@ public class MastSystem extends Subsystem {
 //	public void openBrake() {
 //		brake.set(Value.kForward);
 //	}
-//	
+//
 //	public void closeBrake() {
 //		brake.set(Value.kReverse);
 //	}
 	
 	public boolean getLimitSwitchState() {
 		return limitSwitch.get();
-	}
+}
 	
     // Put methods for controlling this subsystem
     // here. Call these from Commands.

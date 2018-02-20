@@ -44,8 +44,8 @@ public class RobotMap {
 	//DriveStick Buttons
 	public static int driveFullSpeed = 1, 
 					  driveHalfSpeed = 2; 
-	public static int altArmsOpen = 3,
-					  altArmsClose = 4;
+	public static int altArmsOpen = 4,
+					  altArmsClose = 3;
 	public static int altWheelsIntake = 5,
 					  altWheelsEject = 6;
 	public static int altHookForward = 7,
