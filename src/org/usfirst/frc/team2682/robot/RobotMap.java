@@ -30,22 +30,22 @@ public class RobotMap {
 	public static int auxStick = 1;
 	
 	//AuxStick Buttons
-	public static int armsOpen = 1,
-					  armsClose = 2;
-	public static int wheelsIntake = 3,
-					  wheelsEject = 4;
-	public static int linkageUp = 5,
-					  linkageDown = 6;
-	public static int hookForward = 7,
-					  hookBackward = 8;
-	public static int mastUp = 9,
-					  mastDown = 10;
+//	public static int armsOpen = 1,
+//					  armsClose = 2;
+//	public static int wheelsIntake = 7,
+//					  wheelsEject = 8;
+	public static int linkageUp = 3,
+					  linkageDown = 4;
+	public static int hookForward = 5,
+					  hookBackward = 6;
+//	public static int mastUp = 9,
+//					  mastDown = 10;
 	
 	//DriveStick Buttons
 	public static int driveFullSpeed = 1, 
 					  driveHalfSpeed = 2; 
-	public static int altArmsOpen = 3,
-					  altArmsClose = 4;
+	public static int altArmsOpen = 4,
+					  altArmsClose = 3;
 	public static int altWheelsIntake = 5,
 					  altWheelsEject = 6;
 	public static int altHookForward = 7,
@@ -60,6 +60,8 @@ public class RobotMap {
 					  turnAxis = 0;
 	public static int wheelsSpeedAxis = 3;
 	
+	//AuxStick Axes
+	public static int mastAxis = 1;
 	
 //Driving System
 	//PWM
@@ -70,6 +72,12 @@ public class RobotMap {
 	//public static int driveMotorRightFrontPort = 1;
 	//public static int driveMotorLeftBackPort = 2;
 	//public static int driveMotorRightBackPort = 3;
+	
+	//DIO
+	public static int leftEncoderA = 0,
+					  leftEncoderB = 1;
+	public static int rightEncoderA = 2,
+					  rightEncoderB = 3;
 	
 	//Settings
 	public static boolean isGyroContinuous = true;
@@ -106,4 +114,9 @@ public class RobotMap {
 	//Logging
 	public static String logDirectory = "/home/lvuser/";
 	public static String logFilename = "log.txt";
+	//PID tuning values;
+	public static double kP = 1.0/180.0;
+	public static double kI = 0;
+	public static double kD = 0;
+	public static double kF = 0;
 }
