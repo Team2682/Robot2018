@@ -27,48 +27,20 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	//// CREATING BUTTONS
-	// One type of button is a joystick button which is any button on a
-	//// joystick.
-	// You create one by telling it which joystick it's on and which button
-	// number it is.
-	// Joystick stick = new Joystick(port);
-	// Button button = new JoystickButton(stick, buttonNumber);
-
-	// There are a few additional built in buttons you can use. Additionally,
-	// by subclassing Button you can create custom triggers and bind those to
-	// commands the same as any other Button.
-
-	//// TRIGGERING COMMANDS WITH BUTTONS
-	// Once you have a button, it's trivial to bind it to a button in one of
-	// three ways:
-
-	// Start the command when the button is pressed and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenPressed(new ExampleCommand());
-
-	// Run the command while the button is being held down and interrupt it once
-	// the button is released.
-	// button.whileHeld(new ExampleCommand());
-
-	// Start the command when the button is released and let it run the command
-	// until it is finished as determined by it's isFinished method.
-	// button.whenReleased(new ExampleCommand());
-	
+		
 	public Joystick driveStick = new Joystick(RobotMap.driveStick);
 	public Joystick auxStick = new Joystick(RobotMap.auxStick);
 	
 	public Button hookForwardButton = new JoystickButton(auxStick, RobotMap.hookForward);
 	public Button hookBackwardButton = new JoystickButton(auxStick, RobotMap.hookBackward);
-	public Button armOpenButton = new JoystickButton(auxStick, RobotMap.armsOpen);
-	public Button armCloseButton = new JoystickButton(auxStick, RobotMap.armsClose);
-	public Button wheelIntakeButton = new JoystickButton(auxStick, RobotMap.wheelsIntake);
-	public Button wheelEjectButton = new JoystickButton(auxStick, RobotMap.wheelsEject);
+//	public Button armOpenButton = new JoystickButton(auxStick, RobotMap.armsOpen);
+//	public Button armCloseButton = new JoystickButton(auxStick, RobotMap.armsClose);
+//	public Button wheelIntakeButton = new JoystickButton(auxStick, RobotMap.wheelsIntake);
+//	public Button wheelEjectButton = new JoystickButton(auxStick, RobotMap.wheelsEject);
 	public Button linkageUpButton = new JoystickButton(auxStick, RobotMap.linkageUp);
 	public Button linkageDownButton = new JoystickButton(auxStick, RobotMap.linkageDown);
-	public Button mastUpButton = new JoystickButton(auxStick, RobotMap.mastUp);
-	public Button mastDownButton = new JoystickButton(auxStick, RobotMap.mastDown);
-	//CHANGE THESE VALUES LATER
+//	public Button mastUpButton = new JoystickButton(auxStick, RobotMap.mastUp);
+//	public Button mastDownButton = new JoystickButton(auxStick, RobotMap.mastDown);
 	
 	public Button altWheelEjectButton = new JoystickButton(driveStick, RobotMap.altWheelsEject);
 	public Button altWheelIntakeButton = new JoystickButton(driveStick, RobotMap.altWheelsIntake);
@@ -81,18 +53,17 @@ public class OI {
 	public Button altMastUpButton = new JoystickButton(driveStick, RobotMap.altMastUp);
 	public Button altMastDownButton = new JoystickButton(driveStick, RobotMap.altMastDown);
 	
-	
 	public OI() {
 		hookForwardButton.whileHeld(new HookMoveForwardCommand());
 		hookBackwardButton.whileHeld(new HookMoveBackCommand());
-		armOpenButton.whileHeld(new ArmsOpenCommand());
-		armCloseButton.whileHeld(new ArmsCloseCommand());
-		wheelIntakeButton.whileHeld(new CubeIntakeCommand());
-		wheelEjectButton.whileHeld(new CubeOuttakeCommand());
+//		armOpenButton.whileHeld(new ArmsOpenCommand());
+//		armCloseButton.whileHeld(new ArmsCloseCommand());
+//		wheelIntakeButton.whileHeld(new CubeIntakeCommand());
+//		wheelEjectButton.whileHeld(new CubeOuttakeCommand());
 		linkageUpButton.whileHeld(new LinkageMoveUpCommand());
 		linkageDownButton.whileHeld(new LinkageMoveDownCommand());
-		mastUpButton.whileHeld(new MastGoUpCommand());
-		mastDownButton.whileHeld(new MastGoDownCommand());
+//		mastUpButton.whileHeld(new MastGoUpCommand());
+//		mastDownButton.whileHeld(new MastGoDownCommand());
 		
 		altHookForwardButton.whileHeld(new HookMoveForwardCommand());
 		altHookBackwardButton.whileHeld(new HookMoveBackCommand());

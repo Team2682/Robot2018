@@ -1,6 +1,7 @@
 package org.usfirst.frc.team2682.robot.subsystems;
 
 import org.usfirst.frc.team2682.robot.RobotMap;
+import org.usfirst.frc.team2682.robot.commands.MastMoveByStickCommand;
 
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
@@ -29,6 +30,11 @@ public class MastSystem extends Subsystem {
 		mastMotor2.set(ControlMode.PercentOutput, -speed);
 	}
 	
+	public void move(double speed) {
+		mastMotor1.set(ControlMode.PercentOutput, speed);
+		mastMotor2.set(ControlMode.PercentOutput, speed);
+	}
+	
 	public void stop() {
 		mastMotor1.set(ControlMode.PercentOutput, 0);
 		mastMotor2.set(ControlMode.PercentOutput, 0);
@@ -50,6 +56,7 @@ public class MastSystem extends Subsystem {
     // here. Call these from Commands.
 
     public void initDefaultCommand() {
+    	setDefaultCommand(new MastMoveByStickCommand());
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
