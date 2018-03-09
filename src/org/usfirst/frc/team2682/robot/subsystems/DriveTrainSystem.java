@@ -30,7 +30,7 @@ public class DriveTrainSystem extends Subsystem {
 	Encoder rightEncoder = new Encoder(RobotMap.rightEncoderA, RobotMap.rightEncoderB, false, EncodingType.k4X);
 
 	//Most likely i2c port
-	AHRS navX = new AHRS(I2C.Port.kOnboard);
+	public AHRS navX = new AHRS(I2C.Port.kOnboard);
 	
 	//Create a differential drive
 	DifferentialDrive drive = new DifferentialDrive(driveMotorLeftFront, driveMotorRightFront);
@@ -64,12 +64,13 @@ public class DriveTrainSystem extends Subsystem {
     	return navX.getAngle();
     }
     
-    public int getLeftEncoderValue() {
+    public int getDistance() {
     	return leftEncoder.get();
     }
     
-    public int getRightEncoderValue() {
-    	return rightEncoder.get();
+    public void resetEncoders() {
+    	leftEncoder.reset();
+    	//rightEncoder.reset();
     }
 }
 
