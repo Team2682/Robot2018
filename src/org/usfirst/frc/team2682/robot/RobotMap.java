@@ -110,13 +110,22 @@ public class RobotMap {
 	public static int brakeForwardChannel = 1,
 					  brakeReverseChannel = 2;
 
-//Miscellaneous
-	//Logging
-	public static String logDirectory = "/home/lvuser/";
-	public static String logFilename = "log.txt";
+//Autonomous
+	//PixyCam pins
+	public static int pixyCamDIOPin = 2;
+	public static int pixyCamAnalogPin = 0;
 	//PID tuning values;
 	public static double kP = 1.0/180.0;
 	public static double kI = 0;
 	public static double kD = 0;
 	public static double kF = 0;
+	//Encoder-to-distance values
+	public static final double ENCODER_FOOT = 210;
+	public static final double PULSES_PER_INCH = ENCODER_FOOT/12;
+	
+//Miscellaneous
+	//Logging
+	public static final String logDirectory = "/home/lvuser/";
+	public static final String logFileName = "log.txt";
+	
 }

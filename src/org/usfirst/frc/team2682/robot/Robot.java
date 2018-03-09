@@ -33,6 +33,18 @@
 
 package org.usfirst.frc.team2682.robot;
 
+import org.usfirst.frc.team2682.robot.commands.auto.LAutoPos2CommandGroup;
+import org.usfirst.frc.team2682.robot.commands.auto.LLLAutoPos1CommandGroup;
+import org.usfirst.frc.team2682.robot.commands.auto.LLLAutoPos3CommandGroup;
+import org.usfirst.frc.team2682.robot.commands.auto.LRLAutoPos1CommandGroup;
+import org.usfirst.frc.team2682.robot.commands.auto.LRLAutoPos3CommandGroup;
+import org.usfirst.frc.team2682.robot.commands.auto.Pos1And3AutoLineCommandGroup;
+import org.usfirst.frc.team2682.robot.commands.auto.RAutoPos2CommandGroup;
+import org.usfirst.frc.team2682.robot.commands.auto.RLRAutoPos1CommandGroup;
+import org.usfirst.frc.team2682.robot.commands.auto.RLRAutoPos3CommandGroup;
+import org.usfirst.frc.team2682.robot.commands.auto.RRRAutoPos1CommandGroup;
+import org.usfirst.frc.team2682.robot.commands.auto.RRRAutoPos3CommandGroup;
+
 /*----------------------------------------------------------------------------*/
 /* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
 /* Open Source Software - may be modified and shared by FRC teams. The code   */
@@ -48,7 +60,11 @@ import org.usfirst.frc.team2682.robot.subsystems.FourBarLinkageSystem;
 import org.usfirst.frc.team2682.robot.subsystems.HookSystem;
 import org.usfirst.frc.team2682.robot.subsystems.MastSystem;
 
+import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DigitalInput;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -74,6 +90,43 @@ public class Robot extends TimedRobot {
 	public static final CubeIntakeArmsSystem arms = new CubeIntakeArmsSystem();
 	public static final FourBarLinkageSystem linkage = new FourBarLinkageSystem();
 	
+	public static final String USBName = "/dev/ttyUSB0";
+
+	//CameraServer cameraServer = CameraServer.getInstance();
+	//UsbCamera camera;
+	
+	public static DigitalInput isObjectSeen = new DigitalInput(RobotMap.pixyCamDIOPin);
+	public static AnalogInput objectX = new AnalogInput(RobotMap.pixyCamAnalogPin);
+	
+	public static AnalogInput ultraSonicSensor = new AnalogInput(1);
+	
+	public static int startingPos = 1;
+	
+	static double backTrackEncoder;
+	static double backTrackAngle;
+	
+	static double backTrackEncoder2;
+	static double backTrackAngle2;
+	
+	double[] backTrackVector1 = {0,0};
+	double[] backTrackFinalVector = {0,0};
+	
+	public static double magnitude = 0.0;
+	public static double angle = 0.0;
+	
+	public static double displaceXMeters;
+	public static double displaceYMeters;
+	
+	boolean added = false;
+
+	int powercubeX;
+	byte[] powerCubeData;
+	
+//	Accelerometer accel = new BuiltInAccelerometer(Accelerometer.Range.k4G);
+	
+	//VisionThread turnDownForWhatVision;
+	public static I2C comPort;
+	
 	/**
 	 * This function is run when the robot is first started up and should be
 	 * used for any initialization code.
@@ -82,8 +135,10 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
 		CameraServer.getInstance().startAutomaticCapture();
+		SmartDashboard.putNumber("Starting position", 1);
+		
+		comPort = new I2C(I2C.Port.kOnboard, 0x54);
 	}
 
 	/**
@@ -115,14 +170,50 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousInit() {
 		autonomousCommand = chooser.getSelected();
+		
+		drive.navX.reset();
+		drive.resetEncoders();
+		startingPos = (int) SmartDashboard.getNumber("starting position", 1);
+		
+		String gameData = DriverStation.getInstance().getGameSpecificMessage();
+		
+		switch (startingPos) {
+		case 1:
 
-		/*
-		 * String autoSelected = SmartDashboard.getString("Auto Selector",
-		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
-		 * = new MyAutoCommand(); break; case "Default Auto": default:
-		 * autonomousCommand = new ExampleCommand(); break; }
-		 */
+			if (gameData.toUpperCase().charAt(0) == 'R' && gameData.toUpperCase().charAt(1) == 'R') {
+				autonomousCommand = new RRRAutoPos1CommandGroup();
+			} else if (gameData.toUpperCase().charAt(0) == 'L' && gameData.toUpperCase().charAt(1) == 'L') {
+				autonomousCommand = new LLLAutoPos1CommandGroup();
+			} else if (gameData.toUpperCase().charAt(0) == 'R' && gameData.toUpperCase().charAt(1) == 'L') {
+				autonomousCommand = new RLRAutoPos1CommandGroup();
+			} else if (gameData.toUpperCase().charAt(0) == 'L' && gameData.toUpperCase().charAt(1) == 'R') {
+				autonomousCommand = new LRLAutoPos1CommandGroup();
+			}
+			break;
+		case 2:
+			if (gameData.toUpperCase().charAt(0) == 'R') {
+				autonomousCommand = new RAutoPos2CommandGroup();
+			} else if (gameData.toUpperCase().charAt(0) == 'L') {
+				autonomousCommand = new LAutoPos2CommandGroup();
+				
+			}
+			break;
+		case 3:
+			if (gameData.toUpperCase().charAt(0) == 'R' && gameData.toUpperCase().charAt(1) == 'R') {
+				autonomousCommand = new RRRAutoPos3CommandGroup();
+			} else if (gameData.toUpperCase().charAt(0) == 'L' && gameData.toUpperCase().charAt(1) == 'L') {
+				autonomousCommand = new LLLAutoPos3CommandGroup();
+			} else if (gameData.toUpperCase().charAt(0) == 'R' && gameData.toUpperCase().charAt(1) == 'L') {
+				autonomousCommand = new RLRAutoPos3CommandGroup();
+			} else if (gameData.toUpperCase().charAt(0) == 'L' && gameData.toUpperCase().charAt(1) == 'R') {
+				autonomousCommand = new LRLAutoPos3CommandGroup();
+			}
+			break;
+		default:
+			autonomousCommand = new Pos1And3AutoLineCommandGroup();
+		}
 
+		
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null) {
 			autonomousCommand.start();
@@ -162,4 +253,38 @@ public class Robot extends TimedRobot {
 	@Override
 	public void testPeriodic() {
 	}
+
+	public static double getBackTrackEncoder() {
+		return backTrackEncoder;
+	}
+
+	public static void setBackTrackEncoder(double backTrackEncoder) {
+		Robot.backTrackEncoder = backTrackEncoder;
+	}
+
+	public static double getBackTrackAngle() {
+		return backTrackAngle;
+	}
+
+	public static void setBackTrackAngle(double backTrackAngle) {
+		Robot.backTrackAngle = backTrackAngle;
+	}
+
+	public static double getBackTrackEncoder2() {
+		return backTrackEncoder2;
+	}
+
+	public static void setBackTrackEncoder2(double backTrackEncoder2) {
+		Robot.backTrackEncoder2 = backTrackEncoder2;
+	}
+
+	public static double getBackTrackAngle2() {
+		return backTrackAngle2;
+	}
+
+	public static void setBackTrackAngle2(double backTrackAngle2) {
+		Robot.backTrackAngle2 = backTrackAngle2;
+	}
+
+
 }
