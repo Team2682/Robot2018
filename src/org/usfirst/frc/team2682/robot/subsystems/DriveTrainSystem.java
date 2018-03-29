@@ -3,11 +3,12 @@ package org.usfirst.frc.team2682.robot.subsystems;
 import org.usfirst.frc.team2682.robot.RobotMap;
 import org.usfirst.frc.team2682.robot.commands.DriveCommand;
 
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import com.kauailabs.navx.frc.AHRS;
 
+import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj.I2C;
 import edu.wpi.first.wpilibj.Talon;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
@@ -20,8 +21,8 @@ public class DriveTrainSystem extends Subsystem {
 
 	//All of the drive motors (thank god there are only 4)
 
-	public Talon driveMotorLeftFront = new Talon(RobotMap.leftDriveMotor);
-	public Talon driveMotorRightFront = new Talon(RobotMap.rightDriveMotor);
+	public VictorSP driveMotorLeftFront = new VictorSP(RobotMap.leftDriveMotor);
+	public VictorSP driveMotorRightFront = new VictorSP(RobotMap.rightDriveMotor);
 	//public Talon driveMotorLeftBack = new Talon(RobotMap.driveMotorLeftBackPort);
 	//public Talon driveMotorRightBack = new Talon(RobotMap.driveMotorRightBackPort);
 
@@ -31,9 +32,11 @@ public class DriveTrainSystem extends Subsystem {
 	
 	//Create a differential drive
 	DifferentialDrive drive = new DifferentialDrive(driveMotorLeftFront, driveMotorRightFront);
+	Encoder driveEncoder = new Encoder(9, 8);
 
 	//Empty constructor, for other things later on maybe
 	public DriveTrainSystem() {
+		
 	}
 	
     public void initDefaultCommand() {
@@ -44,7 +47,7 @@ public class DriveTrainSystem extends Subsystem {
     
     //Arcade Drive
     public void move(double moveValue, double rotateValue) {
-    	drive.arcadeDrive(moveValue, rotateValue);
+    	drive.arcadeDrive(-moveValue, rotateValue);
     }
     
     //Tank Drive
@@ -64,6 +67,14 @@ public class DriveTrainSystem extends Subsystem {
     //Returns discontinuous angle
     public double getCurrentHeading180() {
     	return navX.getYaw();
+    }
+    
+    public double getDistance() {
+    	return driveEncoder.get();
+    }
+    
+    public void resetEncoders() {
+    	driveEncoder.reset();
     }
 }
 

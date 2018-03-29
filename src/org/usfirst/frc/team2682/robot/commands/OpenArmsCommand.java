@@ -5,17 +5,14 @@ import org.usfirst.frc.team2682.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
- * Written by Jeremy Ignatowitz
- * 
- * Edited by:
- * 
+ *
  */
-public class CubeIntakeCommand extends Command {
+public class OpenArmsCommand extends Command {
 
-    public CubeIntakeCommand() {
-        // Use requires() here to declare subsystem dependencies
+    public OpenArmsCommand() {
+    	requires(Robot.arms);
+    	// Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.wheels);
     }
 
     // Called just before this Command runs the first time
@@ -24,7 +21,7 @@ public class CubeIntakeCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.wheels.takeInCube();
+    	Robot.arms.armTurnOpen(1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
@@ -34,12 +31,12 @@ public class CubeIntakeCommand extends Command {
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.wheels.stop();
+    	Robot.arms.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.wheels.stop();
+    	Robot.arms.stop();
     }
 }

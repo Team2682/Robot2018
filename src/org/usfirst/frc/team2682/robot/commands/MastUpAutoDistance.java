@@ -1,60 +1,45 @@
 package org.usfirst.frc.team2682.robot.commands;
 
 import org.usfirst.frc.team2682.robot.Robot;
-import org.usfirst.frc.team2682.robot.RobotMap;
 
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
  *
  */
-public class HookMoveForwardCommand extends Command {
+public class MastUpAutoDistance extends Command {
 
-	Timer timer = new Timer();
-	boolean autoTimer;
+	double inches;
 	
-    public HookMoveForwardCommand() {
+    public MastUpAutoDistance(double inches) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.hook);
-    }
-    public HookMoveForwardCommand(boolean autoTimer) {
-        // Use requires() here to declare subsystem dependencies
-        // eg. requires(chassis);
-    	requires(Robot.hook);
-    	this.autoTimer = autoTimer;
+    	requires(Robot.mast);
+    	this.inches = inches * (60000/15);
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
-    	if (autoTimer) {
-    		timer.reset();
-    		timer.start();
-    	}
     }
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.hook.moveAtSpeed(RobotMap.hookSpeed);
+    	Robot.mast.goUp(1);
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-    	if (autoTimer)
-    		return timer.get() >= 5;
-    	else
-    		return false;
+        return Robot.mast.getDistance() > inches;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	Robot.hook.stop();
+    	Robot.mast.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	Robot.hook.stop();
+    	Robot.mast.stop();
     }
 }

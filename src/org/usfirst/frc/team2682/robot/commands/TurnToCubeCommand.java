@@ -1,17 +1,20 @@
 package org.usfirst.frc.team2682.robot.commands;
 
 import org.usfirst.frc.team2682.robot.Robot;
-import org.usfirst.frc.team2682.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import util.Misc;
 
 /**
- * Command originally created by Grayson Amendt
- * Edited By: ---
+ *
  */
-public class DriveCommand extends Command {
+public class TurnToCubeCommand extends Command {
 
-    public DriveCommand() {
+	double basePower;
+	int powercubeX;
+	
+    public TurnToCubeCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.drive);
@@ -23,43 +26,32 @@ public class DriveCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	double modifier;
-    	
-    	//Basic Driving
-    	
-    	//Move Axis (y-axis)
-    	double yAxis = Robot.oi.driveStick.getRawAxis(1);
-    	//Rotate Axis (x-axis)
-    	double xAxis = Robot.oi.driveStick.getRawAxis(0);
-    	
-    	if(Robot.oi.driveStick.getRawButton(RobotMap.driveFullSpeed)) {
-    		modifier = 1;
-    	}
-    	else if(Robot.oi.driveStick.getRawButton(RobotMap.driveHalfSpeed)) {
-    		modifier = .5;
-    	}
-    	else {
-    		modifier = .75;
-    	}
-    	
-    	Robot.drive.move(yAxis * modifier, xAxis * modifier);
+
+    	powercubeX = (int) Misc.map(Robot.cubeX.getVoltage(),0,3.3,0,320);
+		
+		if (powercubeX > 170) {
+			Robot.drive.tankMove(-.45, .45);
+		} else if (powercubeX < 150) {
+			Robot.drive.tankMove(.45, -.45);
+		} else {
+			Robot.drive.stop();
+		}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return powercubeX < 170 && powercubeX > 150;
+    	//return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	//stops robot
     	Robot.drive.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-    	//stops robot
     	Robot.drive.stop();
     }
 }

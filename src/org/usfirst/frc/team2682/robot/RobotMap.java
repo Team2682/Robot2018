@@ -27,39 +27,89 @@ public class RobotMap {
 //Control System
 	//USB
 	public static int driveStick = 0;
+	public static int auxStick = 1;
+	
+	//AuxStick Buttons
+	public static int armsOpen = 1,
+					  armsClose = 4;
+	public static int arm2Close = 2,
+					  arm2Open = 3;
+	public static int arm1Close = 11,
+					  arm1Open = 12;
+	public static int linkageUp = 5,
+					  linkageDown = 6;
+	public static int hookForward = 7,
+					  hookBackward = 8;
+	public static int mastUp = 9,
+					  mastDown = 10;
+	
+	//DriveStick Buttons
+	public static int driveFullSpeed = 1, 
+					  driveHalfSpeed = 2; 
+	public static int altArmsOpen = 3,
+					  altArmsClose = 4;
+	public static int altWheelsIntake = 5,
+					  altWheelsEject = 6;
+	public static int altHookForward = 7,
+					  altHookBackward = 8;
+	public static int altLinkageUp = 9,
+					  altLinkageDown = 10;
+	public static int altMastUp = 11,
+					  altMastDown = 12;
+	
+	//DriveStick Axes
+	public static int moveAxis = 1,
+					  turnAxis = 0;
+	public static int wheelsSpeedAxis = 3;
+	
 	
 //Driving System
 	//PWM
 	public static int leftDriveMotor = 0;
-	public static int rightDriveMotor = 1;
+	public static int rightDriveMotor = 2;
 	
 	//public static int driveMotorLeftFrontPort = 0;
 	//public static int driveMotorRightFrontPort = 1;
 	//public static int driveMotorLeftBackPort = 2;
 	//public static int driveMotorRightBackPort = 3;
 	
+	//Settings
+	public static boolean isGyroContinuous = true;
+	public static int PULSES_PER_INCH = 4140/12;
+	
 //Cube Intake
 	//PWM
-	public static int leftCubeIntakeWheel = 2,
-					  rightCubeIntakeWheel = 3;
-	public static int leftCubeIntakeLinkage = 4,
-					  rightCubeIntakeLinkage = 5;
+	public static int leftCubeIntakeWheel = 3,
+					 rightCubeIntakeWheel = 4;
 	//CAN
-	public static int cubeIntakeArm = 1;
+	public static int leftCubeIntakeLinkage = 5,
+					  rightCubeIntakeLinkage = 3;
+	public static int cubeIntakeArm = 4;
+	public static int cubeIntakeArm2 = 8;
 	//Speed
-	public static double wheelSpeed = .5;
-	public static double linkageSpeed = .5;
+	public static double wheelSpeed = 1;
+	public static double linkageSpeed = 1;
 	public static double armSpeed = .5;
 	
 //Climbing/Mast
 	//CAN
 	public static int mastMotorOne = 2,
-					  mastMotorTwo = 3;
-	public static int hookMotor = 4;
+					  mastMotorTwo = 6;
+	public static int hookMotor = 1;
+	public static int PCM = 7;
+	//DIO
+	public static int limitSwitch = 0;
 	//Speed
 	public static double mastSpeed = .5;
-	public static double hookSpeed = .375;
+	public static double hookSpeed = 1;
 	//Pneumatics
-	public static int brakeForwardChannel = 0,
-					  brakeReverseChannel = 1;
+	public static int brakeForwardChannel = 1,
+					  brakeReverseChannel = 2;
+	
+	public static double distanceFactorAtFullSpeed = 5.5;
+
+//Miscellaneous
+	//Logging
+	public static String logDirectory = "/home/lvuser/";
+	public static String logFilename = "log.txt";
 }
