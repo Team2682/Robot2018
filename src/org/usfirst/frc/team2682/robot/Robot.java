@@ -41,16 +41,27 @@
 
 package org.usfirst.frc.team2682.robot;
 
+import org.usfirst.frc.team2682.robot.commands.DriveByGyro;
+import org.usfirst.frc.team2682.robot.commands.HookMoveForwardCommand;
+import org.usfirst.frc.team2682.robot.commands.Pos1And3AutoLineCommandGroup;
+import org.usfirst.frc.team2682.robot.commands.Pos1LLLAuto;
+import org.usfirst.frc.team2682.robot.commands.Pos2LLLAuto;
+import org.usfirst.frc.team2682.robot.commands.Pos2RRRAuto;
+import org.usfirst.frc.team2682.robot.commands.Pos3RRRAuto;
 import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeArmsSystem;
 import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeWheelsSystem;
 import org.usfirst.frc.team2682.robot.subsystems.DriveTrainSystem;
 import org.usfirst.frc.team2682.robot.subsystems.FourBarLinkageSystem;
 import org.usfirst.frc.team2682.robot.subsystems.HookSystem;
 import org.usfirst.frc.team2682.robot.subsystems.MastSystem;
+
+import edu.wpi.first.wpilibj.AnalogInput;
+import edu.wpi.first.wpilibj.CameraServer;
+import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 
 /**
@@ -64,13 +75,25 @@ public class Robot extends TimedRobot {
 	public static OI oi;
 
 	Command autonomousCommand;
-	SendableChooser<Command> chooser = new SendableChooser<>();
 	public static final HookSystem hook = new HookSystem();
 	public static final DriveTrainSystem drive = new DriveTrainSystem();
 	public static final CubeIntakeWheelsSystem wheels = new CubeIntakeWheelsSystem();
 	public static final MastSystem mast = new MastSystem();
 	public static final CubeIntakeArmsSystem arms = new CubeIntakeArmsSystem();
 	public static final FourBarLinkageSystem linkage = new FourBarLinkageSystem();
+	
+	public static AnalogInput ultraSonicSensor = new AnalogInput(0);	
+
+	public static double backTrackEncoder1;
+	public static double backTrackAngle1;
+	public static double backTrackEncoder2;
+	public static double backTrackAngle2;
+	
+	public static AnalogInput cubeX = new AnalogInput(1);
+	
+	CameraServer server = CameraServer.getInstance();
+	
+	Timer timer = new Timer();
 	
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -80,7 +103,9 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		oi = new OI();
 		// chooser.addObject("My Auto", new MyAutoCommand());
-		SmartDashboard.putData("Auto mode", chooser);
+		server.startAutomaticCapture();
+		
+		SmartDashboard.putNumber("Auto Position", 1);
 	}
 
 	/**
@@ -90,12 +115,18 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void disabledInit() {
+		drive.resetEncoders();
+		
+		drive.navX.reset();
 
 	}
 
 	@Override
 	public void disabledPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("gyro yaw", drive.getCurrentHeading());
+	
+		SmartDashboard.putNumber("enc", drive.getDistance());
 	}
 
 	/**
@@ -111,7 +142,50 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void autonomousInit() {
-		autonomousCommand = chooser.getSelected();
+	drive.navX.reset();
+	drive.resetEncoders();
+	mast.resetDistance();
+	timer.reset();
+	timer.start();
+	
+	int startingPos = (int) SmartDashboard.getNumber("Auto Position", 1);
+	
+	String gameData = DriverStation.getInstance().getGameSpecificMessage();
+	
+	switch (startingPos) {
+	case 1:
+		if (gameData.toUpperCase().charAt(0) == 'R' && gameData.toUpperCase().charAt(1) == 'R') {
+			autonomousCommand = new Pos1And3AutoLineCommandGroup();
+		} else if (gameData.toUpperCase().charAt(0) == 'L') {
+			autonomousCommand = new Pos1LLLAuto();
+		} else if (gameData.toUpperCase().charAt(0) == 'R' && gameData.toUpperCase().charAt(1) == 'L') {
+			autonomousCommand = new Pos1And3AutoLineCommandGroup();
+		} else if (gameData.toUpperCase().charAt(0) == 'L' && gameData.toUpperCase().charAt(1) == 'R') {
+			autonomousCommand = new Pos1And3AutoLineCommandGroup();
+		}
+		break;
+	case 2:
+		if (gameData.toUpperCase().charAt(0) == 'R') {
+			autonomousCommand = new Pos2RRRAuto();
+		} else if (gameData.toUpperCase().charAt(0) == 'L') {
+			autonomousCommand = new Pos2LLLAuto();
+			
+		}
+		break;
+	case 3:
+		if (gameData.toUpperCase().charAt(0) == 'R') {
+			autonomousCommand = new Pos3RRRAuto();
+		} else if (gameData.toUpperCase().charAt(0) == 'L' && gameData.toUpperCase().charAt(1) == 'L') {
+			autonomousCommand = new Pos1And3AutoLineCommandGroup();
+		} else if (gameData.toUpperCase().charAt(0) == 'R' && gameData.toUpperCase().charAt(1) == 'L') {
+			autonomousCommand = new Pos1And3AutoLineCommandGroup();
+		} else if (gameData.toUpperCase().charAt(0) == 'L' && gameData.toUpperCase().charAt(1) == 'R') {
+			autonomousCommand = new Pos1And3AutoLineCommandGroup();
+		}
+		break;
+	default:
+		autonomousCommand = new Pos1And3AutoLineCommandGroup();
+	}
 
 		/*
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
@@ -119,7 +193,9 @@ public class Robot extends TimedRobot {
 		 * = new MyAutoCommand(); break; case "Default Auto": default:
 		 * autonomousCommand = new ExampleCommand(); break; }
 		 */
-
+		
+		//autonomousCommand = new Pos1And3AutoLineCommandGroup();
+	
 		// schedule the autonomous command (example)
 		if (autonomousCommand != null) {
 			autonomousCommand.start();
@@ -130,7 +206,12 @@ public class Robot extends TimedRobot {
 	 * This function is called periodically during autonomous.
 	 */
 	@Override
-	public void autonomousPeriodic() {
+	public void autonomousPeriodic() {  
+
+		SmartDashboard.putNumber("gyro yaw", drive.getCurrentHeading());
+		SmartDashboard.putNumber("correction", DriveByGyro.correction);
+		SmartDashboard.putNumber("error", DriveByGyro.error);
+		
 		Scheduler.getInstance().run();
 	}
 
@@ -151,6 +232,8 @@ public class Robot extends TimedRobot {
 	@Override
 	public void teleopPeriodic() {
 		Scheduler.getInstance().run();
+		SmartDashboard.putNumber("mast", mast.getDistance());
+		SmartDashboard.putString("GameData", DriverStation.getInstance().getGameSpecificMessage());
 	}
 
 	/**
@@ -159,4 +242,38 @@ public class Robot extends TimedRobot {
 	@Override
 	public void testPeriodic() {
 	}
+	
+
+	public static double getBackTrackEncoder1() {
+		return backTrackEncoder1;
+	}
+
+	public static void setBackTrackEncoder1(double backTrackEncoder1) {
+		Robot.backTrackEncoder1 = backTrackEncoder1;
+	}
+
+	public static double getBackTrackAngle1() {
+		return backTrackAngle1;
+	}
+
+	public static void setBackTrackAngle1(double backTrackAngle1) {
+		Robot.backTrackAngle1 = backTrackAngle1;
+	}
+
+	public static double getBackTrackEncoder2() {
+		return backTrackEncoder2;
+	}
+
+	public static void setBackTrackEncoder2(double backTrackEncoder2) {
+		Robot.backTrackEncoder2 = backTrackEncoder2;
+	}
+
+	public static double getBackTrackAngle2() {
+		return backTrackAngle2;
+	}
+
+	public static void setBackTrackAngle2(double backTrackAngle2) {
+		Robot.backTrackAngle2 = backTrackAngle2;
+	}
+
 }

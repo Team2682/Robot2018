@@ -9,6 +9,7 @@ import org.usfirst.frc.team2682.robot.RobotMap;
 import org.usfirst.frc.team2682.robot.utilities.Miscellaneous;
 
 import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -16,16 +17,20 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class CubeOuttakeCommand extends Command {
 	
+	boolean auto;
+	Timer timer = new Timer();
 	
-	
-    public CubeOuttakeCommand() {
+    public CubeOuttakeCommand(boolean auto) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.wheels);
+    	this.auto = auto;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	timer.reset();
+    	timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -42,7 +47,10 @@ public class CubeOuttakeCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	if (DriverStation.getInstance().isAutonomous())
+    		return timer.get()>=2;
+    	else
+    		return false;
     }
 
     // Called once after isFinished returns true

@@ -3,23 +3,21 @@ package org.usfirst.frc.team2682.robot.commands;
 import org.usfirst.frc.team2682.robot.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
+import util.Misc;
 
 /**
  *
  */
-public class MastGoUpCommand extends Command {
+public class TurnToCubeCommand extends Command {
 
-	boolean auxStick;
+	double basePower;
+	int powercubeX;
 	
-    public MastGoUpCommand() {
+    public TurnToCubeCommand() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
-    	requires(Robot.mast);
-    }
-    
-    public MastGoUpCommand(boolean auxStick) {
-    	requires(Robot.mast);
-    	this.auxStick = auxStick;
+    	requires(Robot.drive);
     }
 
     // Called just before this Command runs the first time
@@ -28,31 +26,32 @@ public class MastGoUpCommand extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	//Robot.mast.openBrake();
-    	if (auxStick) {
-    		if (Robot.oi.auxStick.getRawAxis(1) > .3 || Robot.oi.auxStick.getRawAxis(1) < -.3) {
-    			Robot.mast.goUp(Robot.oi.auxStick.getRawAxis(1));
-    		} else {
-    			Robot.mast.stop();
-    		}
-    	}
+
+    	powercubeX = (int) Misc.map(Robot.cubeX.getVoltage(),0,3.3,0,320);
+		
+		if (powercubeX > 170) {
+			Robot.drive.tankMove(-.45, .45);
+		} else if (powercubeX < 150) {
+			Robot.drive.tankMove(.45, -.45);
+		} else {
+			Robot.drive.stop();
+		}
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        return powercubeX < 170 && powercubeX > 150;
+    	//return false;
     }
 
     // Called once after isFinished returns true
     protected void end() {
-    	//Robot.mast.closeBrake();
-    	Robot.mast.stop();
+    	Robot.drive.stop();
     }
 
     // Called when another command which requires one or more of the same
     // subsystems is scheduled to run
     protected void interrupted() {
-//    	/Robot.mast.closeBrake();
-    	Robot.mast.stop();
+    	Robot.drive.stop();
     }
 }

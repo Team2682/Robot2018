@@ -2,6 +2,7 @@ package org.usfirst.frc.team2682.robot.commands;
 
 import org.usfirst.frc.team2682.robot.Robot;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.command.Command;
 
 /**
@@ -9,14 +10,20 @@ import edu.wpi.first.wpilibj.command.Command;
  */
 public class FourBarMoveUpCommand extends Command {
 
-    public FourBarMoveUpCommand() {
+	Timer timer = new Timer();
+	boolean timeout;
+	
+    public FourBarMoveUpCommand(boolean timeout) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.linkage);
+    	this.timeout = timeout;
     }
 
     // Called just before this Command runs the first time
     protected void initialize() {
+    	timer.reset();
+    	timer.start();
     }
 
     // Called repeatedly when this Command is scheduled to run
@@ -26,7 +33,10 @@ public class FourBarMoveUpCommand extends Command {
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+    	if (timeout)
+    		return timer.get() > 1.5;
+    	else
+    		return false;
     }
 
     // Called once after isFinished returns true

@@ -17,8 +17,8 @@ public class FourBarLinkageSystem extends Subsystem {
 	TalonSRX linkageLeft = new TalonSRX(RobotMap.leftCubeIntakeLinkage);
 	TalonSRX linkageRight = new TalonSRX(RobotMap.rightCubeIntakeLinkage);
 	
-	DigitalInput limitSwitchTop = new DigitalInput(1);
-	DigitalInput limitSwitchBottom = new DigitalInput(2);
+	/*DigitalInput limitSwitchTop = new DigitalInput(1);
+	DigitalInput limitSwitchBottom = new DigitalInput(2);*/
 	
 	public FourBarLinkageSystem() {
 		//linkageLeft.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder, 0, 255);
@@ -49,7 +49,7 @@ public class FourBarLinkageSystem extends Subsystem {
 	
 	public double getCurrentPositionRight() {
 		return linkageRight.getSelectedSensorPosition(0);
-	}*/
+	}
 	
 	public boolean isLimitSwitchTop() {
 		return limitSwitchTop.get();
@@ -57,7 +57,7 @@ public class FourBarLinkageSystem extends Subsystem {
 	
 	public boolean isLimitSwitchBottom() {
 		return limitSwitchBottom.get();
-	}
+	}*/
 	
     public void initDefaultCommand() {
         // Set the default command for a subsystem here.

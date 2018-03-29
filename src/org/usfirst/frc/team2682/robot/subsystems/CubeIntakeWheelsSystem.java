@@ -21,8 +21,8 @@ public class CubeIntakeWheelsSystem extends Subsystem {
 	}
 	
 	public void spitOutCube() {
-		cubeIntakeWheelLeft.set(-RobotMap.wheelSpeed);
-		cubeIntakeWheelRight.set(RobotMap.wheelSpeed);
+		cubeIntakeWheelLeft.set(-.35);
+		cubeIntakeWheelRight.set(.35);
 	}
 	
 	public void spitOutCube(double speed) {

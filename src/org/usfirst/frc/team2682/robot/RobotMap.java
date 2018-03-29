@@ -31,9 +31,11 @@ public class RobotMap {
 	
 	//AuxStick Buttons
 	public static int armsOpen = 1,
-					  armsClose = 2;
-	public static int wheelsIntake = 3,
-					  wheelsEject = 4;
+					  armsClose = 4;
+	public static int arm2Close = 2,
+					  arm2Open = 3;
+	public static int arm1Close = 11,
+					  arm1Open = 12;
 	public static int linkageUp = 5,
 					  linkageDown = 6;
 	public static int hookForward = 7,
@@ -73,6 +75,7 @@ public class RobotMap {
 	
 	//Settings
 	public static boolean isGyroContinuous = true;
+	public static int PULSES_PER_INCH = 4140/12;
 	
 //Cube Intake
 	//PWM
@@ -82,6 +85,7 @@ public class RobotMap {
 	public static int leftCubeIntakeLinkage = 5,
 					  rightCubeIntakeLinkage = 3;
 	public static int cubeIntakeArm = 4;
+	public static int cubeIntakeArm2 = 8;
 	//Speed
 	public static double wheelSpeed = 1;
 	public static double linkageSpeed = 1;
@@ -97,10 +101,12 @@ public class RobotMap {
 	public static int limitSwitch = 0;
 	//Speed
 	public static double mastSpeed = .5;
-	public static double hookSpeed = .375;
+	public static double hookSpeed = 1;
 	//Pneumatics
 	public static int brakeForwardChannel = 1,
 					  brakeReverseChannel = 2;
+	
+	public static double distanceFactorAtFullSpeed = 5.5;
 
 //Miscellaneous
 	//Logging
