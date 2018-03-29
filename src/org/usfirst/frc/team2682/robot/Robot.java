@@ -42,7 +42,6 @@
 package org.usfirst.frc.team2682.robot;
 
 import org.usfirst.frc.team2682.robot.commands.DriveByGyro;
-import org.usfirst.frc.team2682.robot.commands.HookMoveForwardCommand;
 import org.usfirst.frc.team2682.robot.commands.Pos1And3AutoLineCommandGroup;
 import org.usfirst.frc.team2682.robot.commands.Pos1LLLAuto;
 import org.usfirst.frc.team2682.robot.commands.Pos2LLLAuto;

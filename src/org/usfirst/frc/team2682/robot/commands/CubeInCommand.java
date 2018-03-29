@@ -1,9 +1,5 @@
 package org.usfirst.frc.team2682.robot.commands;
 
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
-
 import org.usfirst.frc.team2682.robot.Robot;
 import org.usfirst.frc.team2682.robot.RobotMap;
 import org.usfirst.frc.team2682.robot.utilities.Miscellaneous;
