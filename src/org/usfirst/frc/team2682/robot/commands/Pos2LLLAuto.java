@@ -17,6 +17,6 @@ public class Pos2LLLAuto extends CommandGroup {
     	addSequential(new DriveByGyro(false, -25, .5, 60, false));
     	addSequential(new TurnByGyro(0, .4, 2, false));
     	addSequential(new DriveByGyro(false, 0, .5, 50, false));
-    	addSequential(new CubeOuttakeCommand(true));
+    	addSequential(new CubeOutCommand(true));
     }
 }

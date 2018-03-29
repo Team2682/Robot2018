@@ -15,12 +15,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class CubeOuttakeCommand extends Command {
+public class CubeInCommand extends Command {
 	
 	boolean auto;
 	Timer timer = new Timer();
 	
-    public CubeOuttakeCommand(boolean auto) {
+    public CubeInCommand(boolean auto) {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	requires(Robot.wheels);

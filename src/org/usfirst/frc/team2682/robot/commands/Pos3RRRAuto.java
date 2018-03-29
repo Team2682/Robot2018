@@ -31,6 +31,6 @@ public class Pos3RRRAuto extends CommandGroup {
     	addSequential(new DriveByGyro(false, 0, .7, 11*12, false));
     	addSequential(new TurnByGyro(-90, .5, 4, false));
     	addSequential(new DriveByGyro(false, -90, .6, 3, false));
-    	addSequential(new CubeOuttakeCommand(true));
+    	addSequential(new CubeOutCommand(true));
     }
 }
