@@ -41,13 +41,12 @@
 
 package org.usfirst.frc.team2682.robot;
 
-import org.usfirst.frc.team2682.robot.commands.DriveByGyro;
-import org.usfirst.frc.team2682.robot.commands.HookMoveForwardCommand;
+import org.usfirst.frc.team2682.robot.commands.DriveByGyroCommand;
 import org.usfirst.frc.team2682.robot.commands.Pos1And3AutoLineCommandGroup;
-import org.usfirst.frc.team2682.robot.commands.Pos1LLLAuto;
-import org.usfirst.frc.team2682.robot.commands.Pos2LLLAuto;
-import org.usfirst.frc.team2682.robot.commands.Pos2RRRAuto;
-import org.usfirst.frc.team2682.robot.commands.Pos3RRRAuto;
+import org.usfirst.frc.team2682.robot.commands.Pos1LLLAutoCommandGroup;
+import org.usfirst.frc.team2682.robot.commands.Pos2LLLAutoCommandGroup;
+import org.usfirst.frc.team2682.robot.commands.Pos2RRRAutoCommandGroup;
+import org.usfirst.frc.team2682.robot.commands.Pos3RRRAutoCommandGroup;
 import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeArmsSystem;
 import org.usfirst.frc.team2682.robot.subsystems.CubeIntakeWheelsSystem;
 import org.usfirst.frc.team2682.robot.subsystems.DriveTrainSystem;
@@ -157,7 +156,7 @@ public class Robot extends TimedRobot {
 		if (gameData.toUpperCase().charAt(0) == 'R' && gameData.toUpperCase().charAt(1) == 'R') {
 			autonomousCommand = new Pos1And3AutoLineCommandGroup();
 		} else if (gameData.toUpperCase().charAt(0) == 'L') {
-			autonomousCommand = new Pos1LLLAuto();
+			autonomousCommand = new Pos1LLLAutoCommandGroup();
 		} else if (gameData.toUpperCase().charAt(0) == 'R' && gameData.toUpperCase().charAt(1) == 'L') {
 			autonomousCommand = new Pos1And3AutoLineCommandGroup();
 		} else if (gameData.toUpperCase().charAt(0) == 'L' && gameData.toUpperCase().charAt(1) == 'R') {
@@ -166,15 +165,15 @@ public class Robot extends TimedRobot {
 		break;
 	case 2:
 		if (gameData.toUpperCase().charAt(0) == 'R') {
-			autonomousCommand = new Pos2RRRAuto();
+			autonomousCommand = new Pos2RRRAutoCommandGroup();
 		} else if (gameData.toUpperCase().charAt(0) == 'L') {
-			autonomousCommand = new Pos2LLLAuto();
+			autonomousCommand = new Pos2LLLAutoCommandGroup();
 			
 		}
 		break;
 	case 3:
 		if (gameData.toUpperCase().charAt(0) == 'R') {
-			autonomousCommand = new Pos3RRRAuto();
+			autonomousCommand = new Pos3RRRAutoCommandGroup();
 		} else if (gameData.toUpperCase().charAt(0) == 'L' && gameData.toUpperCase().charAt(1) == 'L') {
 			autonomousCommand = new Pos1And3AutoLineCommandGroup();
 		} else if (gameData.toUpperCase().charAt(0) == 'R' && gameData.toUpperCase().charAt(1) == 'L') {
@@ -209,8 +208,8 @@ public class Robot extends TimedRobot {
 	public void autonomousPeriodic() {  
 
 		SmartDashboard.putNumber("gyro yaw", drive.getCurrentHeading());
-		SmartDashboard.putNumber("correction", DriveByGyro.correction);
-		SmartDashboard.putNumber("error", DriveByGyro.error);
+		SmartDashboard.putNumber("correction", DriveByGyroCommand.correction);
+		SmartDashboard.putNumber("error", DriveByGyroCommand.error);
 		
 		Scheduler.getInstance().run();
 	}

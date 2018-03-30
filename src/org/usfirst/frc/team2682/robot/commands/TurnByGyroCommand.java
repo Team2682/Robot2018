@@ -9,7 +9,7 @@ import util.PIDCorrection;
 /**
  *
  */
-public class TurnByGyro extends Command {
+public class TurnByGyroCommand extends Command {
 
 	PIDCorrection pidCorrection = new PIDCorrection(0.006);
 
@@ -26,7 +26,7 @@ public class TurnByGyro extends Command {
 
 	Timer timer = new Timer();
 
-	public TurnByGyro(double setAngle, double basePower, double threshold, boolean debug) {
+	public TurnByGyroCommand(double setAngle, double basePower, double threshold, boolean debug) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		this.setPoint = setAngle;

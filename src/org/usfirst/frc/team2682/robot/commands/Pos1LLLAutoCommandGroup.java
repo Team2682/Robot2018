@@ -5,16 +5,16 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class Pos1LLLAuto extends CommandGroup {
+public class Pos1LLLAutoCommandGroup extends CommandGroup {
 
-    public Pos1LLLAuto() {
+    public Pos1LLLAutoCommandGroup() {
     	
     	//addParallel(new FourBarMoveUpCommand(true));
     	addParallel(new MastUpAutoDistance(36));
     	addParallel(new OpenArmsCommand());
-    	addSequential(new DriveByGyro(false, 0, .7, 11*12, false));
-    	addSequential(new TurnByGyro(90, .5, 4, false));
-    	addSequential(new DriveByGyro(false, 90, .6, 3, false));
+    	addSequential(new DriveByGyroCommand(false, 0, .7, 11*12, false));
+    	addSequential(new TurnByGyroCommand(90, .5, 4, false));
+    	addSequential(new DriveByGyroCommand(false, 90, .6, 3, false));
     	addSequential(new CubeOutCommand(true));
         // Add Commands here:
         // e.g. addSequential(new Command1());

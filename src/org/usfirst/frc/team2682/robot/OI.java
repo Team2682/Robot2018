@@ -8,12 +8,12 @@
 package org.usfirst.frc.team2682.robot;
 
 import org.usfirst.frc.team2682.robot.commands.CloseArmsCommand;
-import org.usfirst.frc.team2682.robot.commands.CubeArm1Close;
-import org.usfirst.frc.team2682.robot.commands.CubeArm1Open;
-import org.usfirst.frc.team2682.robot.commands.CubeArm2Close;
-import org.usfirst.frc.team2682.robot.commands.CubeArm2Open;
-import org.usfirst.frc.team2682.robot.commands.CubeOutCommand;
+import org.usfirst.frc.team2682.robot.commands.CubeArm1CloseCommand;
+import org.usfirst.frc.team2682.robot.commands.CubeArm1OpenCommand;
+import org.usfirst.frc.team2682.robot.commands.CubeArm2CloseCommand;
+import org.usfirst.frc.team2682.robot.commands.CubeArm2OpenCommand;
 import org.usfirst.frc.team2682.robot.commands.CubeInCommand;
+import org.usfirst.frc.team2682.robot.commands.CubeOutCommand;
 import org.usfirst.frc.team2682.robot.commands.FourBarMoveDownCommand;
 import org.usfirst.frc.team2682.robot.commands.FourBarMoveUpCommand;
 import org.usfirst.frc.team2682.robot.commands.HookMoveBackCommand;
@@ -96,11 +96,11 @@ public class OI {
 		hookBackwardButton.whileHeld(new HookMoveBackCommand());
 		armOpenButton.whileHeld(new OpenArmsCommand());
 		armCloseButton.whileHeld(new CloseArmsCommand());
-		arm1Close.whileHeld(new CubeArm1Close());
-		arm1Open.whileHeld(new CubeArm1Open());
+		arm1Close.whileHeld(new CubeArm1CloseCommand());
+		arm1Open.whileHeld(new CubeArm1OpenCommand());
 
-		arm2Close.whileHeld(new CubeArm2Close());
-		arm2Open.whileHeld(new CubeArm2Open());
+		arm2Close.whileHeld(new CubeArm2CloseCommand());
+		arm2Open.whileHeld(new CubeArm2OpenCommand());
 		
 		linkageUpButton.whileHeld(new FourBarMoveUpCommand(false));
 		linkageDownButton.whileHeld(new FourBarMoveDownCommand());

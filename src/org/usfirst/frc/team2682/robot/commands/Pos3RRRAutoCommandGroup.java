@@ -5,9 +5,9 @@ import edu.wpi.first.wpilibj.command.CommandGroup;
 /**
  *
  */
-public class Pos3RRRAuto extends CommandGroup {
+public class Pos3RRRAutoCommandGroup extends CommandGroup {
 
-    public Pos3RRRAuto() {
+    public Pos3RRRAutoCommandGroup() {
         // Add Commands here:
         // e.g. addSequential(new Command1());
         //      addSequential(new Command2());
@@ -28,9 +28,9 @@ public class Pos3RRRAuto extends CommandGroup {
     	//addParallel(new FourBarMoveUpCommand(true));
     	addParallel(new MastUpAutoDistance(36));
     	addParallel(new OpenArmsCommand());
-    	addSequential(new DriveByGyro(false, 0, .7, 11*12, false));
-    	addSequential(new TurnByGyro(-90, .5, 4, false));
-    	addSequential(new DriveByGyro(false, -90, .6, 3, false));
+    	addSequential(new DriveByGyroCommand(false, 0, .7, 11*12, false));
+    	addSequential(new TurnByGyroCommand(-90, .5, 4, false));
+    	addSequential(new DriveByGyroCommand(false, -90, .6, 3, false));
     	addSequential(new CubeOutCommand(true));
     }
 }
