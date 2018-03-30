@@ -11,7 +11,7 @@ public class Pos1And3AutoLineCommandGroup extends CommandGroup {
     	
     	
     	addParallel(new HookMoveForwardCommand(true));
-    	addSequential(new DriveByGyro(false,0, .65, 140, false));
+    	addSequential(new DriveByGyroCommand(false,0, .65, 140, false));
     	
         // Add Commands here:
         // e.g. addSequential(new Command1());

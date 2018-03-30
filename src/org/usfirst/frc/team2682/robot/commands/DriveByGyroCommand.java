@@ -11,7 +11,7 @@ import util.PIDCorrection;
 /**
  *
  */
-public class DriveByGyro extends Command {
+public class DriveByGyroCommand extends Command {
 
 	PIDCorrection pidCorrection = new PIDCorrection(0.006);
 
@@ -32,7 +32,7 @@ public class DriveByGyro extends Command {
 	
 	boolean outputBackTrack = false;
 
-	public DriveByGyro(boolean backTracking, boolean secondOrNot, double basePower, boolean debug) {
+	public DriveByGyroCommand(boolean backTracking, boolean secondOrNot, double basePower, boolean debug) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		requires(Robot.drive);
@@ -42,7 +42,7 @@ public class DriveByGyro extends Command {
 		this.debug = debug;
 	}
 	
-	public DriveByGyro(boolean useDistanceSensor, double setPoint, double basePower, double targetDistance, boolean debug) {
+	public DriveByGyroCommand(boolean useDistanceSensor, double setPoint, double basePower, double targetDistance, boolean debug) {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		requires(Robot.drive);
